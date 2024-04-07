@@ -126,6 +126,7 @@ public class RoomChooser : MonoBehaviour
             (Rooms.Starting, Directions.RL) => startingRoomsRL,
             (Rooms.Starting, Directions.UDR) => startingRoomsUDR,
             (Rooms.Starting, Directions.UDL) => startingRoomsUDL,
+            (Rooms.Starting, Directions.URL) => startingRoomsURL,
             (Rooms.Starting, Directions.DRL) => startingRoomsDRL,
             (Rooms.Starting, Directions.UDRL) => startingRoomsUDRL,
             (Rooms.Default, Directions.U) => defaultRoomsU,
@@ -140,6 +141,7 @@ public class RoomChooser : MonoBehaviour
             (Rooms.Default, Directions.RL) => defaultRoomsRL,
             (Rooms.Default, Directions.UDR) => defaultRoomsUDR,
             (Rooms.Default, Directions.UDL) => defaultRoomsUDL,
+            (Rooms.Default, Directions.URL) => defaultRoomsURL,
             (Rooms.Default, Directions.DRL) => defaultRoomsDRL,
             (Rooms.Default, Directions.UDRL) => defaultRoomsUDRL,
             _ => defaultRoomsUDRL

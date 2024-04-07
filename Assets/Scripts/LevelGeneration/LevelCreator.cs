@@ -20,7 +20,7 @@ public class LevelCreator : MonoBehaviour
                 Tilemap room = chooser.ChooseRoom(i, j, level);
                 Tilemap createdRoom = Instantiate(room);
                 createdRoom.transform.parent = gameObject.transform;
-                createdRoom.transform.position = new((i - LevelGenerator.StartingRoomI) * RoomHeight, (j - LevelGenerator.StartingRoomJ) * RoomWidth);
+                createdRoom.transform.position = new((j - LevelGenerator.StartingRoomJ) * RoomWidth, (LevelGenerator.StartingRoomI - i) * RoomHeight);
             }
         }
     }

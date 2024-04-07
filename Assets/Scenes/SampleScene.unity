@@ -194,73 +194,73 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingRoomsUDRL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: dcf922ba8f6135d41bd235ffee989485, type: 3}
   defaultRoomsUDRL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 9b07ab23f43e98244a5f6fbf18d4770e, type: 3}
   startingRoomsUDL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: c0ecad2eb50a8b14c838c95763f92a6a, type: 3}
   defaultRoomsUDL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 24c107db1ed3e4c43966b6aaa6390318, type: 3}
   startingRoomsUDR:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 3278bcee5ba61af449b18d8e932d8e52, type: 3}
   defaultRoomsUDR:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: db556eb267e33844bbeb396aaba243c7, type: 3}
   startingRoomsURL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 59ee8fe71e79d0843b1e21286f7ed6f0, type: 3}
   defaultRoomsURL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: f8d2674ed1517b948baadb9aaa5f37a3, type: 3}
   startingRoomsDRL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 18d6e407332d051448bdd278bc901f9f, type: 3}
   defaultRoomsDRL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 3eb7839dcc866624ba8b49bdd0cdea3b, type: 3}
   startingRoomsUD:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 692e431bc9e2b4c4a93d9df079983b79, type: 3}
   defaultRoomsUD:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 1f5cf69daa387384a927d1aa27582419, type: 3}
   startingRoomsUR:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 32bcd59dac1c6b9489b3c55ee441b43e, type: 3}
   defaultRoomsUR:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: c0619198e4b7d2946aa248dd74657a74, type: 3}
   startingRoomsUL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 43df344a49372c94f96ebba923f2b04b, type: 3}
   defaultRoomsUL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 83924794d360b5946a65262891ba5407, type: 3}
   startingRoomsDR:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 61a14dcb808b39f44af19671533668dd, type: 3}
   defaultRoomsDR:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 34fcd51cc5dd8b04abcc7aac8fd7d56d, type: 3}
   startingRoomsDL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 40c609f1ae2d48c43b68bf114450734f, type: 3}
   defaultRoomsDL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 9c3c8303ff65e4d4ba8007e88a15dca9, type: 3}
   startingRoomsRL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 167ce3c5a6d76f74a8064d972126fd30, type: 3}
   defaultRoomsRL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 2c1a21fe0b55e854482143fbe0742828, type: 3}
   startingRoomsU:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 7e15992046ca9224392b60a0746e8a34, type: 3}
   defaultRoomsU:
   - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
   bossRoomsU:
   - {fileID: 5287897904203795591, guid: c5a41885e6b8bcf47bdd306ba73b9908, type: 3}
   startingRoomsD:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 29e997415a5656041b20c008f98e8fb8, type: 3}
   defaultRoomsD:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: ac442d71634f25d4da2416aa02195863, type: 3}
   bossRoomsD:
-  - {fileID: 5287897904203795591, guid: c5a41885e6b8bcf47bdd306ba73b9908, type: 3}
+  - {fileID: 5287897904203795591, guid: 4b90a783854daf04abd182908788b182, type: 3}
   startingRoomsR:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 312165e5bf1ed0345a48165396d84eab, type: 3}
   defaultRoomsR:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 3aa9dd9668f887449a5adea81ebdb3d2, type: 3}
   bossRoomsR:
-  - {fileID: 5287897904203795591, guid: c5a41885e6b8bcf47bdd306ba73b9908, type: 3}
+  - {fileID: 5287897904203795591, guid: 0dc53f76c3115bf4aaab232adba252ce, type: 3}
   startingRoomsL:
-  - {fileID: 5287897904203795591, guid: 90a2e16ede32cc14399b100e53433b14, type: 3}
+  - {fileID: 5287897904203795591, guid: 55a237a56e193714697aefdacef4d246, type: 3}
   defaultRoomsL:
-  - {fileID: 5287897904203795591, guid: 31481b1c9e0fab84e8692becaa755ab3, type: 3}
+  - {fileID: 5287897904203795591, guid: 600250cbed5a8a5449022bdc89478110, type: 3}
   bossRoomsL:
-  - {fileID: 5287897904203795591, guid: c5a41885e6b8bcf47bdd306ba73b9908, type: 3}
+  - {fileID: 5287897904203795591, guid: f44ba1300b9702244af2c96b0fa42645, type: 3}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
