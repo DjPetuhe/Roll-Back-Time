@@ -46,7 +46,7 @@ public class LevelGenerator
                     continue;
 
                 List<(int i, int j)> neighbours = GetAmountOfNeighbors(i + adjI, j + adjJ, level);
-                if (neighbours.Count > Rand.Next(4) / 3 + 1)
+                if (neighbours.Count > Rand.Next(8) / 7 + 1) //Rand.Next(4) / 3 + 1
                     continue;
 
                 level[i + adjI, j + adjJ] = Rooms.Default;
