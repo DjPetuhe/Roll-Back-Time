@@ -1379,6 +1379,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: TX Props_DoorLR
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 181
+        width: 6
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8203f216a34bc2648aac13562b96cced
+      internalID: -806065144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TX Doors_LR_Opened
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 181
+        width: 21
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bac588208b5dae4d9139fbaf9540fb7
+      internalID: -331897749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -1390,6 +1432,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      TX Doors_LR_Opened: -331897749
       TX Props Altar: 21300142
       TX Props Altar Rune 1: 21300144
       TX Props Altar Rune 2: 21300146
@@ -1438,6 +1481,7 @@ TextureImporter:
       TX Props Well: 21300164
       TX Props Wooden Gate: 21300158
       TX Props Wooden Gate Opened: 21300160
+      TX Props_DoorLR: -806065144
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
