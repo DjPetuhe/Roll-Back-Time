@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Cainos.PixelArtTopDown_Basic
 {
-    //animate the sprite color base on the gradient and time
     public class SpriteColorAnimation : MonoBehaviour
     {
         public Gradient gradient;
@@ -21,13 +20,14 @@ namespace Cainos.PixelArtTopDown_Basic
 
         private void Update()
         {
-            if (sr)
-            {
-                timer += Time.deltaTime;
-                if (timer > time) timer = 0.0f;
+            if (!sr)
+                return;
 
-                sr.color = gradient.Evaluate(timer / time);
-            }
+            timer += Time.deltaTime;
+            if (timer > time)
+                timer = 0.0f;
+
+            sr.color = gradient.Evaluate(timer / time);
         }
     }
 }
