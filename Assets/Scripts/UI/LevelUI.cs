@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class LevelUI : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class LevelUI : MonoBehaviour
     [SerializeField] GameObject gameOverUI;
     [SerializeField] GameObject gameOverText;
     [SerializeField] GameObject endGameText;
+
+    [Header("Perks")]
+    [SerializeField] List<GameObject> perks;
 
     private GameManager _gameManager;
 
@@ -71,4 +75,14 @@ public class LevelUI : MonoBehaviour
     }
 
     public void SwitchPauseStatus(bool enable) => pauseButton.interactable = enable;
+
+    public void ChoosingPerks()
+    {
+
+    }
+
+    public void ChoosePerk(int id)
+    {
+
+    }
 }

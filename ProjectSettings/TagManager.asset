@@ -6,6 +6,8 @@ TagManager:
   tags:
   - GameManager
   - Bullet
+  - Enemy
+  - LevelUI
   layers:
   - Default
   - TransparentFX

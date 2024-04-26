@@ -148,6 +148,17 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private int _clearedWaves;
+    public int ClearedWaves
+    {
+        get { return _clearedWaves; }
+        set
+        {
+            if (value == _clearedWaves + 1)
+                _clearedWaves++;
+        }
+    }
+
     private const float TIME_BEFORE_GAME_OVER = 2f;
 
     private const float START_TIME_SECONDS = 0;

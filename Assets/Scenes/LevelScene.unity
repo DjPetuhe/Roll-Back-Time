@@ -1750,7 +1750,7 @@ GameObject:
   - component: {fileID: 1184949456}
   m_Layer: 5
   m_Name: LevelUI
-  m_TagString: Untagged
+  m_TagString: LevelUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1865,6 +1865,7 @@ MonoBehaviour:
   gameOverUI: {fileID: 0}
   gameOverText: {fileID: 0}
   endGameText: {fileID: 0}
+  perks: []
 --- !u!1001 &1211875488
 PrefabInstance:
   m_ObjectHideFlags: 0
