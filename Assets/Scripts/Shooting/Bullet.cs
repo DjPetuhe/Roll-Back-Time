@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [Header("Particle System prefab")]
+    [SerializeField] GameObject HitParticlePrefab;
+    [SerializeField] GameObject FallParticlePrefab;
+
+    [field:Header("Stats")]
     public Vector2 Direction { get; set; }
     public float Speed { get; set; }
     public float Range { get; set; }
@@ -17,6 +22,8 @@ public class Bullet : MonoBehaviour
         if ((transform.position - _startingPos).magnitude >= Range)
         {
             Destroy(gameObject);
+            GameObject particles = Instantiate(FallParticlePrefab, gameObject.transform.position, Quaternion.identity);
+            particles.GetComponent<ParticleSystem>().Play();
             return;
         }
 
@@ -30,7 +37,7 @@ public class Bullet : MonoBehaviour
             if (State == EnvironemtnState.hostile)
                 return;
 
-            //Deal Damage to enemy
+            other.gameObject.GetComponent<EnemyHealthControle>().DealDamage(Damage);
         }
         else if (other.gameObject.CompareTag("Player"))
         {
@@ -40,5 +47,7 @@ public class Bullet : MonoBehaviour
             //Deal Damage to player
         }
         Destroy(gameObject);
+        GameObject particles = Instantiate(HitParticlePrefab, gameObject.transform.position, Quaternion.identity);
+        particles.GetComponent<ParticleSystem>().Play();
     }
 }

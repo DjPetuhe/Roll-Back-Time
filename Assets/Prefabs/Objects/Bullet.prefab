@@ -134,6 +134,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5d59343e9f516c4182da53bc8bd36f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HitParticlePrefab: {fileID: 7304202680911400000, guid: 0952823312eaa9c439f0c7986349329d, type: 3}
+  FallParticlePrefab: {fileID: 7304202680911400000, guid: 0952823312eaa9c439f0c7986349329d, type: 3}
 --- !u!50 &7237910739692210400
 Rigidbody2D:
   serializedVersion: 4

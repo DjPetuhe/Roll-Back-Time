@@ -26,6 +26,21 @@ public class Waves : MonoBehaviour
     private bool _finished;
     private bool _started;
 
+    private int _killed;
+    public int Killed
+    {
+        get { return _killed; }
+        set
+        {
+            _killed = value == _killed + 1 ? value : _killed;
+            if (_killed >= _spawnAmount)
+            {
+                foreach (Door door in Doors)
+                    door.TriggerOpen();
+            }
+        }
+    }
+
     private List<GameObject> _enemyPool;
     private static readonly Random Rand = new();
 
@@ -42,8 +57,12 @@ public class Waves : MonoBehaviour
         if (_spawned < _spawnAmount)
             return;
 
-        foreach (Door door in Doors)
-            door.TriggerOpen();
+        foreach (GameObject spawner in Spawners)
+        {
+            foreach (Transform child in spawner.transform)
+                child.gameObject.SetActive(false);
+        }
+
         _finished = true;
     }
 
@@ -55,6 +74,12 @@ public class Waves : MonoBehaviour
         _spawnAmount = DifficultyToSpawnAmount();
         _enemyPool = DifficultyToEnemies();
         _started = true;
+
+        foreach (GameObject spawner in Spawners)
+        {
+            foreach (Transform child in spawner.transform)
+                child.gameObject.SetActive(true);
+        }
     }
 
     public void SpawnEnemies()
@@ -63,7 +88,8 @@ public class Waves : MonoBehaviour
         {
             GameObject enemyPrefab = _enemyPool[Rand.Next(_enemyPool.Count)];
             Vector2 offset = GetRandSpawnDirection();
-            Instantiate(enemyPrefab, spawner.transform.position + (Vector3)offset, Quaternion.identity);
+            GameObject enemy = Instantiate(enemyPrefab, spawner.transform.position + (Vector3)offset, Quaternion.identity);
+            enemy.GetComponent<EnemyHealthControle>().Wave = this;
             _spawned++;
             if (_spawned >= _spawnAmount)
                 break;
