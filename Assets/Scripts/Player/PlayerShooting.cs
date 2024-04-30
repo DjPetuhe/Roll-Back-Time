@@ -3,14 +3,14 @@
 public class PlayerShooting : MonoBehaviour
 {
     [Header("Bullet")]
-    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] GameObject BulletPrefab;
 
     [Header("Wand")]
-    [SerializeField] GameObject wand;
-    [SerializeField] Transform gunpoint;
+    [SerializeField] GameObject Wand;
+    [SerializeField] Transform Gunpoint;
 
     [Header("Joystick")]
-    [SerializeField] Joystick joystick;
+    [SerializeField] Joystick Joystick;
 
     private float _timeLeft = 0;
 
@@ -24,17 +24,17 @@ public class PlayerShooting : MonoBehaviour
 
     private void Update()
     {
-        _direction.y = joystick.Vertical;
-        _direction.x = joystick.Horizontal;
+        _direction.y = Joystick.Vertical;
+        _direction.x = Joystick.Horizontal;
 
         if (_direction == Vector2.zero)
-            wand.SetActive(false);
+            Wand.SetActive(false);
         else
         {
-            if (!wand.activeSelf)
-                wand.SetActive(true);
+            if (!Wand.activeSelf)
+                Wand.SetActive(true);
 
-            wand.transform.rotation = Quaternion.LookRotation(Vector3.forward, -_direction);
+            Wand.transform.rotation = Quaternion.LookRotation(Vector3.forward, -_direction);
 
             if (_timeLeft > 0)
             {
@@ -43,7 +43,7 @@ public class PlayerShooting : MonoBehaviour
             }
 
             _timeLeft = _gameManager.TimeBetweenShots;
-            GameObject bullet = Instantiate(bulletPrefab, gunpoint.transform.position, Quaternion.identity);
+            GameObject bullet = Instantiate(BulletPrefab, Gunpoint.transform.position, Quaternion.identity);
             Bullet bulletScript = bullet.GetComponent<Bullet>();
             bulletScript.Direction = _direction.normalized;
             bulletScript.Speed = _gameManager.BulletSpeed;

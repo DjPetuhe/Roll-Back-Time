@@ -5,69 +5,69 @@ using System.Collections.Generic;
 
 public class RoomChooser : MonoBehaviour
 {
-    [Header("Default UDRL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUDRL;
-    [SerializeField] List<Tilemap> defaultRoomsUDRL;
+    [Header("UDRL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUDRL;
+    [SerializeField] List<Tilemap> DefaultRoomsUDRL;
 
-    [Header("Default UDL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUDL;
-    [SerializeField] List<Tilemap> defaultRoomsUDL;
+    [Header("UDL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUDL;
+    [SerializeField] List<Tilemap> DefaultRoomsUDL;
 
-    [Header("Default UDR Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUDR;
-    [SerializeField] List<Tilemap> defaultRoomsUDR;
+    [Header("UDR Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUDR;
+    [SerializeField] List<Tilemap> DefaultRoomsUDR;
 
-    [Header("Default URL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsURL;
-    [SerializeField] List<Tilemap> defaultRoomsURL;
+    [Header("URL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsURL;
+    [SerializeField] List<Tilemap> DefaultRoomsURL;
     
-    [Header("Default DRL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsDRL;
-    [SerializeField] List<Tilemap> defaultRoomsDRL;
+    [Header("DRL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsDRL;
+    [SerializeField] List<Tilemap> DefaultRoomsDRL;
 
-    [Header("Default UD Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUD;
-    [SerializeField] List<Tilemap> defaultRoomsUD;
+    [Header("UD Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUD;
+    [SerializeField] List<Tilemap> DefaultRoomsUD;
 
-    [Header("Default UR Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUR;
-    [SerializeField] List<Tilemap> defaultRoomsUR;
+    [Header("UR Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUR;
+    [SerializeField] List<Tilemap> DefaultRoomsUR;
 
-    [Header("Default UL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsUL;
-    [SerializeField] List<Tilemap> defaultRoomsUL;
+    [Header("UL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsUL;
+    [SerializeField] List<Tilemap> DefaultRoomsUL;
 
-    [Header("Default DR Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsDR;
-    [SerializeField] List<Tilemap> defaultRoomsDR;
+    [Header("DR Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsDR;
+    [SerializeField] List<Tilemap> DefaultRoomsDR;
 
-    [Header("Default DL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsDL;
-    [SerializeField] List<Tilemap> defaultRoomsDL;
+    [Header("DL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsDL;
+    [SerializeField] List<Tilemap> DefaultRoomsDL;
 
-    [Header("Default RL Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsRL;
-    [SerializeField] List<Tilemap> defaultRoomsRL;
+    [Header("RL Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsRL;
+    [SerializeField] List<Tilemap> DefaultRoomsRL;
 
-    [Header("Default U Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsU;
-    [SerializeField] List<Tilemap> defaultRoomsU;
-    [SerializeField] List<Tilemap> bossRoomsU;
+    [Header("U Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsU;
+    [SerializeField] List<Tilemap> DefaultRoomsU;
+    [SerializeField] List<Tilemap> BossRoomsU;
 
-    [Header("Default D Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsD;
-    [SerializeField] List<Tilemap> defaultRoomsD;
-    [SerializeField] List<Tilemap> bossRoomsD;
+    [Header("D Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsD;
+    [SerializeField] List<Tilemap> DefaultRoomsD;
+    [SerializeField] List<Tilemap> BossRoomsD;
 
-    [Header("Default R Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsR;
-    [SerializeField] List<Tilemap> defaultRoomsR;
-    [SerializeField] List<Tilemap> bossRoomsR;
+    [Header("R Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsR;
+    [SerializeField] List<Tilemap> DefaultRoomsR;
+    [SerializeField] List<Tilemap> BossRoomsR;
 
-    [Header("Default L Rooms")]
-    [SerializeField] List<Tilemap> startingRoomsL;
-    [SerializeField] List<Tilemap> defaultRoomsL;
-    [SerializeField] List<Tilemap> bossRoomsL;
+    [Header("L Rooms")]
+    [SerializeField] List<Tilemap> StartingRoomsL;
+    [SerializeField] List<Tilemap> DefaultRoomsL;
+    [SerializeField] List<Tilemap> BossRoomsL;
 
     private static readonly List<(int i, int j, Directions d)> AdjacentDirections = new()
     {
@@ -110,41 +110,41 @@ public class RoomChooser : MonoBehaviour
     {
         return (room, direction) switch
         {
-            (Rooms.Boss, Directions.U) => bossRoomsU,
-            (Rooms.Boss, Directions.D) => bossRoomsD,
-            (Rooms.Boss, Directions.R) => bossRoomsR,
-            (Rooms.Boss, Directions.L) => bossRoomsL,
-            (Rooms.Starting, Directions.U) => startingRoomsU,
-            (Rooms.Starting, Directions.D) => startingRoomsD,
-            (Rooms.Starting, Directions.R) => startingRoomsR,
-            (Rooms.Starting, Directions.L) => startingRoomsL,
-            (Rooms.Starting, Directions.UD) => startingRoomsUD,
-            (Rooms.Starting, Directions.UR) => startingRoomsUR,
-            (Rooms.Starting, Directions.UL) => startingRoomsUL,
-            (Rooms.Starting, Directions.DR) => startingRoomsDR,
-            (Rooms.Starting, Directions.DL) => startingRoomsDL,
-            (Rooms.Starting, Directions.RL) => startingRoomsRL,
-            (Rooms.Starting, Directions.UDR) => startingRoomsUDR,
-            (Rooms.Starting, Directions.UDL) => startingRoomsUDL,
-            (Rooms.Starting, Directions.URL) => startingRoomsURL,
-            (Rooms.Starting, Directions.DRL) => startingRoomsDRL,
-            (Rooms.Starting, Directions.UDRL) => startingRoomsUDRL,
-            (Rooms.Default, Directions.U) => defaultRoomsU,
-            (Rooms.Default, Directions.D) => defaultRoomsD,
-            (Rooms.Default, Directions.R) => defaultRoomsR,
-            (Rooms.Default, Directions.L) => defaultRoomsL,
-            (Rooms.Default, Directions.UD) => defaultRoomsUD,
-            (Rooms.Default, Directions.UR) => defaultRoomsUR,
-            (Rooms.Default, Directions.UL) => defaultRoomsUL,
-            (Rooms.Default, Directions.DR) => defaultRoomsDR,
-            (Rooms.Default, Directions.DL) => defaultRoomsDL,
-            (Rooms.Default, Directions.RL) => defaultRoomsRL,
-            (Rooms.Default, Directions.UDR) => defaultRoomsUDR,
-            (Rooms.Default, Directions.UDL) => defaultRoomsUDL,
-            (Rooms.Default, Directions.URL) => defaultRoomsURL,
-            (Rooms.Default, Directions.DRL) => defaultRoomsDRL,
-            (Rooms.Default, Directions.UDRL) => defaultRoomsUDRL,
-            _ => defaultRoomsUDRL
+            (Rooms.Boss, Directions.U) => BossRoomsU,
+            (Rooms.Boss, Directions.D) => BossRoomsD,
+            (Rooms.Boss, Directions.R) => BossRoomsR,
+            (Rooms.Boss, Directions.L) => BossRoomsL,
+            (Rooms.Starting, Directions.U) => StartingRoomsU,
+            (Rooms.Starting, Directions.D) => StartingRoomsD,
+            (Rooms.Starting, Directions.R) => StartingRoomsR,
+            (Rooms.Starting, Directions.L) => StartingRoomsL,
+            (Rooms.Starting, Directions.UD) => StartingRoomsUD,
+            (Rooms.Starting, Directions.UR) => StartingRoomsUR,
+            (Rooms.Starting, Directions.UL) => StartingRoomsUL,
+            (Rooms.Starting, Directions.DR) => StartingRoomsDR,
+            (Rooms.Starting, Directions.DL) => StartingRoomsDL,
+            (Rooms.Starting, Directions.RL) => StartingRoomsRL,
+            (Rooms.Starting, Directions.UDR) => StartingRoomsUDR,
+            (Rooms.Starting, Directions.UDL) => StartingRoomsUDL,
+            (Rooms.Starting, Directions.URL) => StartingRoomsURL,
+            (Rooms.Starting, Directions.DRL) => StartingRoomsDRL,
+            (Rooms.Starting, Directions.UDRL) => StartingRoomsUDRL,
+            (Rooms.Default, Directions.U) => DefaultRoomsU,
+            (Rooms.Default, Directions.D) => DefaultRoomsD,
+            (Rooms.Default, Directions.R) => DefaultRoomsR,
+            (Rooms.Default, Directions.L) => DefaultRoomsL,
+            (Rooms.Default, Directions.UD) => DefaultRoomsUD,
+            (Rooms.Default, Directions.UR) => DefaultRoomsUR,
+            (Rooms.Default, Directions.UL) => DefaultRoomsUL,
+            (Rooms.Default, Directions.DR) => DefaultRoomsDR,
+            (Rooms.Default, Directions.DL) => DefaultRoomsDL,
+            (Rooms.Default, Directions.RL) => DefaultRoomsRL,
+            (Rooms.Default, Directions.UDR) => DefaultRoomsUDR,
+            (Rooms.Default, Directions.UDL) => DefaultRoomsUDL,
+            (Rooms.Default, Directions.URL) => DefaultRoomsURL,
+            (Rooms.Default, Directions.DRL) => DefaultRoomsDRL,
+            (Rooms.Default, Directions.UDRL) => DefaultRoomsUDRL,
+            _ => DefaultRoomsUDRL
         };
     }
 }

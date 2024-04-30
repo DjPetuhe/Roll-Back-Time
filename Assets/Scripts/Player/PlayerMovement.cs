@@ -3,13 +3,13 @@
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Player animator")]
-    [SerializeField] Animator animator;
+    [SerializeField] Animator Animator;
 
     [Header("Player rigidbody")]
-    [SerializeField] Rigidbody2D rb2d;
+    [SerializeField] Rigidbody2D Rb2d;
 
     [Header("Joystick")]
-    [SerializeField] Joystick joystick;
+    [SerializeField] Joystick Joystick;
 
     private GameManager _gameManager;
     private PlayerHealthControl _playerHealthControl;
@@ -37,18 +37,18 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 _direction;
 
-    private const float EPSILON = 0.001f;
+    private const float Epsilon = 0.001f;
 
     private void OnEnable()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        //_playerHealthControl = GetComponent<PlayerHealthControl>();
-        CellPosition = (Mathf.RoundToInt(rb2d.position.y), Mathf.RoundToInt(rb2d.position.x));
+        _playerHealthControl = GetComponent<PlayerHealthControl>();
+        CellPosition = (Mathf.RoundToInt(Rb2d.position.y), Mathf.RoundToInt(Rb2d.position.x));
     }
 
     private int FindDirection()
     {
-        if (_direction.sqrMagnitude > EPSILON)
+        if (_direction.sqrMagnitude > Epsilon)
         {
             if (_direction.x > _direction.y) Dir = (_direction.x > -_direction.y) ? 2 : 1;
             else Dir = (_direction.x < -_direction.y) ? 4 : 3;
@@ -58,10 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        //if (_playerHealthControl.State == PlayerState.Dead) return;
+        if (_playerHealthControl.State == PlayerState.Dead) return;
         if (_gameManager.State == GameState.Pause || _gameManager.State == GameState.GameEnd) return;
-        _direction.x = joystick.Horizontal;
-        _direction.y = joystick.Vertical;
+        _direction.x = Joystick.Horizontal;
+        _direction.y = Joystick.Vertical;
         ConfigureAnimator();
     }
 
@@ -83,8 +83,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb2d.MovePosition(rb2d.position + _gameManager.Speed * Time.fixedDeltaTime * _direction);
-        (int, int) currentPos = (Mathf.RoundToInt(rb2d.position.y), Mathf.RoundToInt(rb2d.position.x));
+        Rb2d.MovePosition(Rb2d.position + _gameManager.Speed * Time.fixedDeltaTime * _direction);
+        (int, int) currentPos = (Mathf.RoundToInt(Rb2d.position.y), Mathf.RoundToInt(Rb2d.position.x));
         if (currentPos != CellPosition) CellPosition = currentPos;
     }
 

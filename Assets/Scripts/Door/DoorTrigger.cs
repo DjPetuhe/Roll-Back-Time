@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 public class DoorTrigger : MonoBehaviour
 {
-    [SerializeField] List<Door> doors;
+    [SerializeField] List<Door> Doors;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        foreach (Door door in doors)
+        foreach (Door door in Doors)
             door.TriggerClose();
     }
 }

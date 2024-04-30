@@ -2,38 +2,39 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Collections.Generic;
 
 public class LevelUI : MonoBehaviour
 {
     [Header("Fields")]
-    [SerializeField] GameObject timeField;
-    [SerializeField] GameObject hpField;
+    [SerializeField] GameObject TimeField;
+    [SerializeField] GameObject HpField;
 
     [Header("HP sprites")]
-    [SerializeField] Sprite hpFull;
-    [SerializeField] Sprite hpEmpty;
+    [SerializeField] Sprite HpFull;
+    [SerializeField] Sprite HpEmpty;
 
     [Header("Buttons")]
-    [SerializeField] Button pauseButton;
-    [SerializeField] Button resumeButton;
+    [SerializeField] Button PauseButton;
+    [SerializeField] Button ResumeButton;
 
     [Header("Panel")]
-    [SerializeField] GameObject panel;
+    [SerializeField] GameObject Panel;
 
     [Header("End Game UI")]
-    [SerializeField] GameObject gameOverUI;
-    [SerializeField] GameObject gameOverText;
-    [SerializeField] GameObject endGameText;
+    [SerializeField] GameObject GameOverUI;
+    [SerializeField] GameObject GameOverText;
+    [SerializeField] GameObject EndGameText;
 
-    [Header("Perks")]
-    [SerializeField] List<GameObject> perks;
+    [Header("Perks UI")]
+    [SerializeField] GameObject PerksUI;
 
     private GameManager _gameManager;
+    private PerkUI _perkUI;
 
     private void Awake()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        _perkUI = PerksUI.GetComponent<PerkUI>();
     }
 
     public void Pause() => _gameManager.PauseGame();
@@ -45,20 +46,20 @@ public class LevelUI : MonoBehaviour
         int minutes = Mathf.CeilToInt(time) / 60;
         int seconds = Mathf.CeilToInt(time) % 60;
         string secondsString = seconds < 10 ? "0" + seconds.ToString() : seconds.ToString();
-        timeField.GetComponent<TextMeshProUGUI>().text = $"{minutes}:" + secondsString;
+        TimeField.GetComponent<TextMeshProUGUI>().text = $"{minutes}:" + secondsString;
     }
 
     public void SetHealth(float health, float maxHealth)
     {
-        foreach (Transform child in hpField.transform)
+        foreach (Transform child in HpField.transform)
         {
             if (health > 0)
             {
-                child.GetComponent<Image>().sprite = hpFull;
+                child.GetComponent<Image>().sprite = HpFull;
                 health--;
             }
             else
-                child.GetComponent<Image>().sprite = hpEmpty;
+                child.GetComponent<Image>().sprite = HpEmpty;
         }
     }
 
@@ -68,21 +69,19 @@ public class LevelUI : MonoBehaviour
 
     public void EndGamePopUp(bool gameOver)
     {
-        panel.SetActive(true);
-        gameOverUI.SetActive(true);
-        gameOverText.GetComponent<TextMeshProUGUI>().text = gameOver ? "Game over!" : "You won!";
-        endGameText.GetComponent<TextMeshProUGUI>().text = gameOver ? "You died! Try again!" : "Congratulations!";
+        Panel.SetActive(true);
+        GameOverUI.SetActive(true);
+        GameOverText.GetComponent<TextMeshProUGUI>().text = gameOver ? "Game over!" : "You won!";
+        EndGameText.GetComponent<TextMeshProUGUI>().text = gameOver ? "You died! Try again!" : "Congratulations!";
     }
 
-    public void SwitchPauseStatus(bool enable) => pauseButton.interactable = enable;
+    public void SwitchPauseStatus(bool enable) => PauseButton.interactable = enable;
 
     public void ChoosingPerks()
     {
-
-    }
-
-    public void ChoosePerk(int id)
-    {
-
+        Panel.SetActive(true);
+        PerksUI.SetActive(true);
+        _perkUI.RandomizePerks();
+        _gameManager.PauseGame();
     }
 }

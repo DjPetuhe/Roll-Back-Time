@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHP: 100
-  spriteRenderer: {fileID: 7556950736113722962}
-  deathParticlesPrefab: {fileID: 7297090815858143179, guid: 8e8099038979a0a41afb2c5aea49dc55, type: 3}
+  SpriteRenderer: {fileID: 7556950736113722962}
+  DeathParticlesPrefab: {fileID: 7297090815858143179, guid: 8e8099038979a0a41afb2c5aea49dc55, type: 3}
 --- !u!58 &-9166854117926125064
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -4,25 +4,25 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
-    [SerializeField] GameObject closedDoor;
-    [SerializeField] GameObject openedDoor;
+    [SerializeField] GameObject ClosedDoor;
+    [SerializeField] GameObject OpenedDoor;
 
-    private bool triggered = false;
+    private bool _triggered = false;
 
     public void TriggerClose()
     {
-        if (triggered)
+        if (_triggered)
             return;
 
-        closedDoor.SetActive(true);
-        openedDoor.SetActive(false);
+        ClosedDoor.SetActive(true);
+        OpenedDoor.SetActive(false);
 
-        triggered = true;
+        _triggered = true;
     }
 
     public void TriggerOpen()
     {
-        closedDoor.SetActive(false);
-        openedDoor.SetActive(true);
+        ClosedDoor.SetActive(false);
+        OpenedDoor.SetActive(true);
     }
 }

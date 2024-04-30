@@ -7,10 +7,10 @@ public class EnemyHealthControle : MonoBehaviour
     [SerializeField] float MaxHP;
 
     [Header("Sprite Renderer")]
-    [SerializeField] SpriteRenderer spriteRenderer;
+    [SerializeField] SpriteRenderer SpriteRenderer;
 
     [Header("Particle System prefab")]
-    [SerializeField] GameObject deathParticlesPrefab;
+    [SerializeField] GameObject DeathParticlesPrefab;
 
     private int _triggeredTimes = 0;
     private float _hp;
@@ -18,8 +18,8 @@ public class EnemyHealthControle : MonoBehaviour
     private static Color s_damageColor = new(255, 0, 0);
     private static Color s_defaultColor = new(255, 255, 255);
 
-    private const float DAMAGE_COLOR_TIME = 0.5f;
-    private const float DEATH_ANIMATION_TIME = 1f;
+    private const float DamageColorTime = 0.5f;
+    private const float DeathAnimationTime = 1f;
 
     public Waves Wave { get; set; }
 
@@ -37,21 +37,24 @@ public class EnemyHealthControle : MonoBehaviour
     private IEnumerator DamageFrames()
     {
         _triggeredTimes++;
-        spriteRenderer.color = s_damageColor;
-        yield return new WaitForSeconds(DAMAGE_COLOR_TIME);
+        SpriteRenderer.color = s_damageColor;
+        yield return new WaitForSeconds(DamageColorTime);
+
         _triggeredTimes--;
         if (_triggeredTimes == 0)
-            spriteRenderer.color = s_defaultColor;
+            SpriteRenderer.color = s_defaultColor;
     }
 
     public IEnumerator Death()
     {
-        spriteRenderer.color = s_damageColor;
+        SpriteRenderer.color = s_damageColor;
         //GetComponent<PlayerMovement>().StopMovement(); stop ai movement
-        yield return new WaitForSeconds(DEATH_ANIMATION_TIME);
+        yield return new WaitForSeconds(DeathAnimationTime);
+
         Destroy(gameObject);
         Wave.Killed++;
-        GameObject particles = Instantiate(deathParticlesPrefab, gameObject.transform.position, Quaternion.identity);
+
+        GameObject particles = Instantiate(DeathParticlesPrefab, gameObject.transform.position, Quaternion.identity);
         particles.GetComponent<ParticleSystem>().Play();
     }
 }

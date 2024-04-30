@@ -5,7 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private LevelUI _levelUI;
 
-    private float _currentTime = START_TIME_SECONDS;
+    private float _currentTime = StartTimeSeconds;
     public float CurrentTime
     {
         get { return _currentTime; }
@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
     }
     public int StateInt { get { return (int)_state; } }
 
-    private int _curHealth = START_HEALTH;
+    private int _curHealth = StartHealth;
     public int CurHealth
     {
         get { return _curHealth; }
@@ -54,16 +54,16 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private int _health = START_HEALTH;
+    private int _health = StartHealth;
     public int Health
     {
         get { return _health; }
         set
         {
-            if (value <= MIN_HEALTH)
-                _health = MIN_HEALTH;
-            else if (value >= MAX_HEALTH)
-                _health = MAX_HEALTH;
+            if (value <= MinHealth)
+                _health = MinHealth;
+            else if (value >= MaxHealth)
+                _health = MaxHealth;
             else
             {
 
@@ -74,75 +74,75 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private float speed = START_SPEED;
+    private float speed = StartSpeed;
     public float Speed
     {
         get { return speed; }
         set
         {
-            if (value <= MIN_SPEED)
-                speed = MIN_SPEED;
-            else if (value >= MAX_SPEED)
-                speed = MAX_SPEED;
+            if (value <= MinSpeed)
+                speed = MinSpeed;
+            else if (value >= MaxSpeed)
+                speed = MaxSpeed;
             else speed = value;
         }
     }
 
-    private float _timeBetweenShots = START_TIME_BETWEEN_SHOTS;
+    private float _timeBetweenShots = StartTimeBetweenShots;
     public float TimeBetweenShots
     {
         get { return _timeBetweenShots; }
         set
         {
-            if (value <= MIN_TIME_BETWEEN_SHOTS)
-                _timeBetweenShots = MIN_TIME_BETWEEN_SHOTS;
-            else if (value >= MAX_SPEED)
-                _timeBetweenShots = MAX_TIME_BETWEEN_SHOTS;
+            if (value <= MinTimeBetweenShots)
+                _timeBetweenShots = MinTimeBetweenShots;
+            else if (value >= MaxSpeed)
+                _timeBetweenShots = MaxTimeBetweenShots;
             else
                 _timeBetweenShots = value;
         }
     }
 
-    private float _damage = START_DAMAGE;
+    private float _damage = StartDamage;
     public float Damage
     {
         get { return _damage; }
         set
         {
-            if (value <= MIN_DAMAGE)
-                _damage = MIN_DAMAGE;
-            else if (value >= MAX_DAMAGE)
-                _damage = MAX_DAMAGE;
+            if (value <= MinDamage)
+                _damage = MinDamage;
+            else if (value >= MaxDamage)
+                _damage = MaxDamage;
             else
                 _damage = value;
         }
     }
 
-    private float _range = START_RANGE;
+    private float _range = StartRange;
     public float Range
     {
         get { return _range; }
         set
         {
-            if (value <= MIN_RANGE)
-                _range = MIN_RANGE;
-            else if (value >= MAX_RANGE)
-                _range = MAX_RANGE;
+            if (value <= MinRange)
+                _range = MinRange;
+            else if (value >= MaxRange)
+                _range = MaxRange;
             else
                 _range = value;
         }
     }
 
-    private float _bulletSpeed = START_BULLET_SPEED;
+    private float _bulletSpeed = StartBulletSpeed;
     public float BulletSpeed
     {
         get { return _bulletSpeed; }
         set
         {
-            if (value <= MIN_BULLET_SPEED)
-                _bulletSpeed = MIN_BULLET_SPEED;
-            else if (value >= MAX_BULLET_SPEED)
-                _bulletSpeed = MAX_BULLET_SPEED;
+            if (value <= MinBulletSpeed)
+                _bulletSpeed = MinBulletSpeed;
+            else if (value >= MaxBulletSpeed)
+                _bulletSpeed = MaxBulletSpeed;
             else
                 _bulletSpeed = value;
         }
@@ -159,28 +159,28 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private const float TIME_BEFORE_GAME_OVER = 2f;
+    private const float TimeBeforeGameOver = 2f;
 
-    private const float START_TIME_SECONDS = 0;
-    private const int START_HEALTH = 100;
-    private const float START_SPEED = 4f;
-    private const float START_TIME_BETWEEN_SHOTS = 1;
-    private const float START_DAMAGE = 10;
-    private const float START_RANGE = 5;
-    private const float START_BULLET_SPEED = 3;
+    private const float StartTimeSeconds = 0;
+    private const int StartHealth = 100;
+    private const float StartSpeed = 4f;
+    private const float StartTimeBetweenShots = 1;
+    private const float StartDamage = 10;
+    private const float StartRange = 5;
+    private const float StartBulletSpeed = 3;
 
-    public const int MIN_HEALTH = 10;
-    public const int MAX_HEALTH = 1000;
-    public const float MIN_SPEED = 1;
-    public const float MAX_SPEED = 5;
-    public const float MIN_TIME_BETWEEN_SHOTS = 0.2f;
-    public const float MAX_TIME_BETWEEN_SHOTS = 2f;
-    public const float MIN_DAMAGE = 1;
-    public const float MAX_DAMAGE = 1000;
-    public const float MIN_RANGE = 1;
-    public const float MAX_RANGE = 20;
-    public const float MIN_BULLET_SPEED = 1;
-    public const float MAX_BULLET_SPEED = 10;
+    public const int MinHealth = 10;
+    public const int MaxHealth = 1000;
+    public const float MinSpeed = 1;
+    public const float MaxSpeed = 5;
+    public const float MinTimeBetweenShots = 0.2f;
+    public const float MaxTimeBetweenShots = 2f;
+    public const float MinDamage = 1;
+    public const float MaxDamage = 1000;
+    public const float MinRange = 1;
+    public const float MaxRange = 20;
+    public const float MinBulletSpeed = 1;
+    public const float MaxBulletSpeed = 10;
 
     private void Awake()
     {
@@ -224,7 +224,7 @@ public class GameManager : MonoBehaviour
     {
         _levelUI.SwitchPauseStatus(false);
         yield return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthControl>().Death();
-        yield return new WaitForSeconds(TIME_BEFORE_GAME_OVER);
+        yield return new WaitForSeconds(TimeBeforeGameOver);
         EndGameUI(true);
     }
 
@@ -237,4 +237,9 @@ public class GameManager : MonoBehaviour
     public void ResumeGame() => State = GameState.Play;
 
     public void PauseGame() => State = GameState.Pause;
+
+    public void ApplyPerkChanges(PerkChanges perkChanges)
+    {
+        //TODO: Apply changes
+    }
 }

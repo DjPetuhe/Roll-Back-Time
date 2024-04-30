@@ -47,8 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1da7f4413461fd64a9788e1d5dd3be6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  closedDoor: {fileID: 6354107865046139458}
-  openedDoor: {fileID: 8587499087610660450}
+  ClosedDoor: {fileID: 6354107865046139458}
+  OpenedDoor: {fileID: 8587499087610660450}
 --- !u!1 &8823029860091065840
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5175070da476244409f39c63d96f7964, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  doors: []
+  Doors: []
 --- !u!68 &1015875279752586979
 EdgeCollider2D:
   m_ObjectHideFlags: 0

@@ -7,10 +7,15 @@ public class Bullet : MonoBehaviour
     [SerializeField] GameObject FallParticlePrefab;
 
     [field:Header("Stats")]
+    [field:SerializeField]
     public Vector2 Direction { get; set; }
+    [field:SerializeField]
     public float Speed { get; set; }
+    [field:SerializeField]
     public float Range { get; set; }
+    [field:SerializeField]
     public float Damage { get; set; }
+    [field:SerializeField]
     public EnvironemtnState State { get; set; }
 
     private Vector3 _startingPos;
