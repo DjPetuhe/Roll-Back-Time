@@ -1,0 +1,133 @@
+{
+    "Perks": [
+        {
+            "PerkQuality": 1,
+            "Description": "Doubles current damage",
+            "PerkChanges": {
+                "DamageMultiplyer": 2
+            }
+        },
+        {
+            "PerkQuality": 1,
+            "Description": "All stats up!",
+            "PerkChanges": {
+                "DamageChange": 5,
+                "IncomingDamageMultiplyer": 0.95,
+                "MaxHealthChange": 20,
+                "HealthChange": 20,
+                "RangeChange": 2,
+                "TimeBetweenShotsChange": -0.05,
+                "SpeedChange": 0.5,
+                "BulletSpeedChange": 1
+            }
+        },
+        {
+            "PerkQuality": 1,
+            "Description": "Increases bullet speed 1.5 times and reduces time between shots 1.5 times",
+            "PerkChanges": {
+                "BulletSpeedMultiplyer": 1.5,
+                "TimeBetweenShotsMultiplyer": 0.75
+            }
+        },
+        {
+            "PerkQuality": 2,
+            "Description": "Increases range by 2 cells and decreases time between shots by 0.1 seconds, but decreases damage by 5",
+            "PerkChanges": {
+                "DamageChange": -2,
+                "RangeChange": 1,
+                "TimeBetweenShotsChange": -0.1
+            }
+        },
+        {
+            "PerkQuality": 2,
+            "Description": "Triples the damage, but doubles incoming damage",
+            "PerkChanges": {
+                "DamageMultiplier": 3,
+                "IncomingDamageMultiplyer": 2
+            }
+        },
+        {
+            "PerkQuality": 2,
+            "Description": "Doubles max health but loose 50% of current health points",
+            "PerkChanges": {
+                "MaxHealthMultiplyer": 2,
+                "HealthMultiplyer": 0.5
+            }
+        },
+        {
+            "PerkQuality": 2,
+            "Description": "Your shots deal more damage, but bullets move more slowly",
+            "PerkChanges": {
+                "DamageMultiplyer": 2,
+                "BulletSpeedMultiplyer": 0.5 
+            }
+        },
+        {
+            "PerkQuality": 2,
+            "Description": "Increases damage by 10, bullet speed by 1, range by 3 and decreases time between shots by 0.1 by cost of 25% of your max hp",
+            "PerkChanges": {
+                "DamageChange": 10,
+                "BulletSpeedChange": 1,
+                "RangeChange": 3,
+                "TimeBetweenShotsChange": 0.1,
+                "MaxHealthMultiplyer": 0.75 
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Increases damage by 10",
+            "PerkChanges": {
+                "DamageChange": 10
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Increases range by 3",
+            "PerkChanges": {
+                "RangeChange": 3
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Decreases incoming damage by 10%",
+            "PerkChanges": {
+                "IncomingDamageMultiplyer": 0.9
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Decreases time between shots by 0.15 seconds",
+            "PerkChanges": {
+                "TimeBetweenShotsChange": -0.15
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Increases speed by 1",
+            "PerkChanges": {
+                "SpeedChange": 2
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Fully heals player",
+            "PerkChanges": {
+                "HealthChange": 1000
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Increases max health by 75",
+            "PerkChanges": {
+                "MaxHealthChange": 75
+            }
+        },
+        {
+            "PerkQuality": 0,
+            "Description": "Increases bullet speed by 1.5",
+            "PerkChanges": {
+                "BulletSpeedChange": 1.5
+            }
+        }
+    ]
+}

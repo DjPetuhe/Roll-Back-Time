@@ -16,4 +16,6 @@ public class PerkChanges
     public float TimeBetweenShotsMultiplyer = 1;
     public float SpeedChange = 0;
     public float SpeedMultiplyer = 1;
+    public float BulletSpeedChange = 0;
+    public float BulletSpeedMultiplyer = 1;
 }

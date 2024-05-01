@@ -1,4 +1,7 @@
-﻿public enum PerkQuality
+﻿using System;
+
+[Serializable]
+public enum PerkQuality
 {
     usual = 0,
     rare = 1,

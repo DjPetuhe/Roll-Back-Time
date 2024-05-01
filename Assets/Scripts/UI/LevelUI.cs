@@ -7,11 +7,10 @@ public class LevelUI : MonoBehaviour
 {
     [Header("Fields")]
     [SerializeField] GameObject TimeField;
-    [SerializeField] GameObject HpField;
 
-    [Header("HP sprites")]
-    [SerializeField] Sprite HpFull;
-    [SerializeField] Sprite HpEmpty;
+    [Header("Health Bar")]
+    [SerializeField] Image HealthBar;
+    [SerializeField] TextMeshProUGUI HealthText;
 
     [Header("Buttons")]
     [SerializeField] Button PauseButton;
@@ -51,16 +50,8 @@ public class LevelUI : MonoBehaviour
 
     public void SetHealth(float health, float maxHealth)
     {
-        foreach (Transform child in HpField.transform)
-        {
-            if (health > 0)
-            {
-                child.GetComponent<Image>().sprite = HpFull;
-                health--;
-            }
-            else
-                child.GetComponent<Image>().sprite = HpEmpty;
-        }
+        HealthBar.fillAmount = health / maxHealth;
+        HealthText.text = $"{health} / {maxHealth}";
     }
 
     public void Restart() => SceneManager.LoadScene("LevelScene");

@@ -5,11 +5,11 @@ using System.Collections.Generic;
 
 public static class LoadManager
 {
-    private const string PerksFilePath = "/perks.json";
+    private static readonly string PerksFilePath = Application.dataPath + "/Data/perks.json";
 
     public static List<Perk> ReadPerksFromJson()
     {
         string json = File.ReadAllText(PerksFilePath);
-        return JsonUtility.FromJson<Perk[]>(json).ToList();
+        return JsonUtility.FromJson<PerkWrapper>(json).Perks.ToList();
     }
 }

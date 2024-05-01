@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
     private LevelUI _levelUI;
 
+    [SerializeField]
     private float _currentTime = StartTimeSeconds;
     public float CurrentTime
     {
@@ -19,6 +20,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private GameState _state;
     public GameState State
     {
@@ -35,6 +37,7 @@ public class GameManager : MonoBehaviour
     }
     public int StateInt { get { return (int)_state; } }
 
+    [SerializeField]
     private int _curHealth = StartHealth;
     public int CurHealth
     {
@@ -54,6 +57,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private int _health = StartHealth;
     public int Health
     {
@@ -65,29 +69,31 @@ public class GameManager : MonoBehaviour
             else if (value >= MaxHealth)
                 _health = MaxHealth;
             else
-            {
-
-            }
                 _health = value;
+
+            if (CurHealth < _health)
+                CurHealth = _health;
 
             _levelUI.SetHealth(CurHealth, _health);
         }
     }
 
-    private float speed = StartSpeed;
+    [SerializeField]
+    private float _speed = StartSpeed;
     public float Speed
     {
-        get { return speed; }
+        get { return _speed; }
         set
         {
             if (value <= MinSpeed)
-                speed = MinSpeed;
+                _speed = MinSpeed;
             else if (value >= MaxSpeed)
-                speed = MaxSpeed;
-            else speed = value;
+                _speed = MaxSpeed;
+            else _speed = value;
         }
     }
 
+    [SerializeField]
     private float _timeBetweenShots = StartTimeBetweenShots;
     public float TimeBetweenShots
     {
@@ -103,6 +109,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _damage = StartDamage;
     public float Damage
     {
@@ -118,6 +125,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _range = StartRange;
     public float Range
     {
@@ -133,6 +141,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
     private float _bulletSpeed = StartBulletSpeed;
     public float BulletSpeed
     {
@@ -148,6 +157,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [SerializeField]
+    private float _incomingDamageMultiplyer = StartIncDamageMultiplyer;
+    public float IncomingDamageMultiplyer
+    {
+        get { return _incomingDamageMultiplyer; }
+        set
+        {
+            if (value <= MinIncDamageMultiplyer)
+                _incomingDamageMultiplyer = MinIncDamageMultiplyer;
+            else if (value >= MaxIncDamageMultiplyer)
+                _incomingDamageMultiplyer = MaxIncDamageMultiplyer;
+            else
+                _bulletSpeed = value;
+        }
+    }
+
+    [SerializeField]
     private int _clearedWaves;
     public int ClearedWaves
     {
@@ -163,11 +189,12 @@ public class GameManager : MonoBehaviour
 
     private const float StartTimeSeconds = 0;
     private const int StartHealth = 100;
-    private const float StartSpeed = 4f;
+    private const float StartSpeed = 2f;
     private const float StartTimeBetweenShots = 1;
     private const float StartDamage = 10;
     private const float StartRange = 5;
     private const float StartBulletSpeed = 3;
+    private const float StartIncDamageMultiplyer = 1;
 
     public const int MinHealth = 10;
     public const int MaxHealth = 1000;
@@ -181,6 +208,8 @@ public class GameManager : MonoBehaviour
     public const float MaxRange = 20;
     public const float MinBulletSpeed = 1;
     public const float MaxBulletSpeed = 10;
+    public const float MinIncDamageMultiplyer = 0.1f;
+    public const float MaxIncDamageMultiplyer = 5f;
 
     private void Awake()
     {
@@ -240,6 +269,20 @@ public class GameManager : MonoBehaviour
 
     public void ApplyPerkChanges(PerkChanges perkChanges)
     {
-        //TODO: Apply changes
+        Health += (int)perkChanges.MaxHealthChange;
+        Health = (int)Mathf.Ceil(Health * perkChanges.MaxHealthMultiplyer);
+        CurHealth += (int)perkChanges.HealthChange;
+        CurHealth = (int)Mathf.Ceil(CurHealth * perkChanges.HealthMultiplyer);
+        Damage += (int)perkChanges.DamageChange;
+        Damage = (int)Mathf.Ceil(Damage * perkChanges.DamageMultiplyer);
+        Range += (int)perkChanges.RangeChange;
+        Range = (int)Mathf.Ceil(Range * perkChanges.RangeMultiplyer);
+        TimeBetweenShots += (int)perkChanges.TimeBetweenShotsChange;
+        TimeBetweenShots = (int)Mathf.Ceil(TimeBetweenShots * perkChanges.TimeBetweenShotsMultiplyer);
+        Speed += (int)perkChanges.SpeedChange;
+        Speed = (int)Mathf.Ceil(Speed * perkChanges.SpeedMultiplyer);
+        BulletSpeed += (int)perkChanges.BulletSpeedChange;
+        BulletSpeed = (int)Mathf.Ceil(BulletSpeed * perkChanges.BulletSpeedMultiplyer);
+        IncomingDamageMultiplyer = (int)Mathf.Ceil(IncomingDamageMultiplyer * perkChanges.IncomingDamageMultiplyer);
     }
 }
