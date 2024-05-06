@@ -49,6 +49,7 @@ public class PlayerShooting : MonoBehaviour
             bulletScript.Speed = _gameManager.BulletSpeed;
             bulletScript.Damage = _gameManager.Damage;
             bulletScript.Range = _gameManager.Range;
+            bulletScript.KnockBack = 100; //temporary?
             bulletScript.State = EnvironemtnState.Friendly;
         }
     }

@@ -1,6 +1,6 @@
 ﻿public enum EnvironemtnState
 {
     Friendly = 0,
-    hostile = 1,
+    Hostile = 1,
     Neutral = 2
 }

@@ -11,7 +11,6 @@ public class PlayerHealthControl : MonoBehaviour
     [SerializeField] GameObject DeathParticlesPrefab;
 
     private GameManager _gameManager;
-    private int _triggeredEnemies = 0;
 
     private static Color s_damageColor = new(255, 0, 0);
     private static Color s_defaultColor = new(255, 255, 255);
@@ -25,27 +24,16 @@ public class PlayerHealthControl : MonoBehaviour
 
     private void OnEnable() => _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void DealDamage(int damage)
     {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Bullet"))
-        {
-            _triggeredEnemies++;
-            if (State != PlayerState.Normal)
-                return;
-            if (_gameManager.CurHealth != 0)
-                StartCoroutine(InvincibleFrames());
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy") || collision.gameObject.CompareTag("Bullet"))
-            _triggeredEnemies--;
+        _gameManager.CurHealth -= Mathf.RoundToInt(damage * _gameManager.IncomingDamageMultiplyer);
+        Debug.Log($"DMG: {Mathf.RoundToInt(damage * _gameManager.IncomingDamageMultiplyer)}");
+        if (_gameManager.CurHealth != 0)
+            StartCoroutine(InvincibleFrames());
     }
 
     private IEnumerator InvincibleFrames()
     {
-        _gameManager.CurHealth--;
         State = PlayerState.Invincible;
         for (int i = 0; i < BlinkingAmount; i++)
         {
@@ -56,8 +44,6 @@ public class PlayerHealthControl : MonoBehaviour
                 yield return new WaitForSeconds(BlinkingGapTime);
         }
         State = PlayerState.Normal;
-        if (_triggeredEnemies != 0)
-            StartCoroutine(InvincibleFrames());
     }
 
     public IEnumerator Death()
@@ -71,5 +57,5 @@ public class PlayerHealthControl : MonoBehaviour
         particles.GetComponent<ParticleSystem>().Play();
     }
 
-    public void RestoreHealth() => _gameManager.CurHealth++;
+    public void RestoreHealth(int heal) => _gameManager.CurHealth += heal;
 }

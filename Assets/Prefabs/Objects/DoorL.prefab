@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5212057717378005811}
   - component: {fileID: 3735495706174647154}
+  - component: {fileID: 5692429969506742400}
   m_Layer: 0
   m_Name: DoorL
   m_TagString: Untagged
@@ -49,6 +50,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ClosedDoor: {fileID: 6354107865046139458}
   OpenedDoor: {fileID: 8587499087610660450}
+--- !u!114 &5692429969506742400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8233212063933207085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fa0352a4d56abd42ad2fc69deb72448, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Size: {x: 0.9838224, y: 1.9053562, z: 4}
+  m_Center: {x: 0.3189431, y: 0.18492341, z: 0}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1 &8823029860091065840
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,7 +145,7 @@ EdgeCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_EdgeRadius: 0
+  m_EdgeRadius: 0.2
   m_Points:
   - {x: 1, y: -1}
   - {x: 0, y: -1}

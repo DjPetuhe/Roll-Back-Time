@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
             else
                 _health = value;
 
-            if (CurHealth < _health)
+            if (CurHealth > _health)
                 CurHealth = _health;
 
             _levelUI.SetHealth(CurHealth, _health);
@@ -169,7 +169,7 @@ public class GameManager : MonoBehaviour
             else if (value >= MaxIncDamageMultiplyer)
                 _incomingDamageMultiplyer = MaxIncDamageMultiplyer;
             else
-                _bulletSpeed = value;
+                _incomingDamageMultiplyer = value;
         }
     }
 
@@ -273,16 +273,16 @@ public class GameManager : MonoBehaviour
         Health = (int)Mathf.Ceil(Health * perkChanges.MaxHealthMultiplyer);
         CurHealth += (int)perkChanges.HealthChange;
         CurHealth = (int)Mathf.Ceil(CurHealth * perkChanges.HealthMultiplyer);
-        Damage += (int)perkChanges.DamageChange;
-        Damage = (int)Mathf.Ceil(Damage * perkChanges.DamageMultiplyer);
-        Range += (int)perkChanges.RangeChange;
-        Range = (int)Mathf.Ceil(Range * perkChanges.RangeMultiplyer);
-        TimeBetweenShots += (int)perkChanges.TimeBetweenShotsChange;
-        TimeBetweenShots = (int)Mathf.Ceil(TimeBetweenShots * perkChanges.TimeBetweenShotsMultiplyer);
-        Speed += (int)perkChanges.SpeedChange;
-        Speed = (int)Mathf.Ceil(Speed * perkChanges.SpeedMultiplyer);
-        BulletSpeed += (int)perkChanges.BulletSpeedChange;
-        BulletSpeed = (int)Mathf.Ceil(BulletSpeed * perkChanges.BulletSpeedMultiplyer);
-        IncomingDamageMultiplyer = (int)Mathf.Ceil(IncomingDamageMultiplyer * perkChanges.IncomingDamageMultiplyer);
+        Damage += perkChanges.DamageChange;
+        Damage *= perkChanges.DamageMultiplyer;
+        Range += perkChanges.RangeChange;
+        Range *= perkChanges.RangeMultiplyer;
+        TimeBetweenShots += perkChanges.TimeBetweenShotsChange;
+        TimeBetweenShots *= perkChanges.TimeBetweenShotsMultiplyer;
+        Speed += perkChanges.SpeedChange;
+        Speed *= perkChanges.SpeedMultiplyer;
+        BulletSpeed += perkChanges.BulletSpeedChange;
+        BulletSpeed *= perkChanges.BulletSpeedMultiplyer;
+        IncomingDamageMultiplyer *= perkChanges.IncomingDamageMultiplyer;
     }
 }
