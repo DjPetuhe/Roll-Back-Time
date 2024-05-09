@@ -29,7 +29,7 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = value switch
             {
-                GameState.Play => 1,
+                GameState.Play => SkillTimeScale,
                 _ => 0
             };
             _state = value;
@@ -185,6 +185,92 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private float _skillTimeScale;
+    public float SkillTimeScale
+    {
+        get
+        {
+            if (SkillActive)
+                return _skillTimeScale;
+            return 1;
+        }
+        set
+        {
+            if (value < 0)
+                _skillTimeScale = 0;
+            else if (value > 1)
+                _skillTimeScale = 1;
+            else
+                _skillTimeScale = value;
+        }
+    }
+
+    private float _skillCooldown;
+    public float SkillCooldown
+    {
+        get { return _skillCooldown; }
+        set
+        {
+            if (value < 0)
+            {
+                _skillCooldown = 0;
+                _levelUI.DeactivateCooldownImage();
+            }
+            else if (value > CooldownTime)
+                _skillCooldown = CooldownTime;
+            else
+            {
+                _skillCooldown = value;
+                _levelUI.FillCooldownImage(_skillCooldown / CooldownTime);
+            }
+        }
+    }
+
+    private float _skillTimePassed;
+    public float SkillTimePassed
+    {
+        get { return _skillTimePassed; }
+        private set
+        {
+            if (value < 0)
+                _skillTimePassed = 0;
+            else if (value > SkillTime)
+            {
+                _skillTimePassed = SkillTime;
+                SkillActive = false;
+                _levelUI.DeactivateSkillTimeImage();
+            }
+            else
+            {
+                _skillTimePassed = value;
+                _levelUI.FillSkillTimeImage(_skillTimePassed / SkillTime);
+            }
+        }
+    }
+
+    private bool _skillActive;
+    public bool SkillActive
+    {
+        get { return _skillActive; }
+        set
+        {
+            if (value == _skillActive)
+                return;
+            if (value && _skillCooldown == 0)
+            {
+                SkillTimePassed = 0;
+                _skillActive = value;
+            }
+            else if (!value && SkillTimePassed >= SkillTime)
+            {
+                _skillActive = value;
+                SkillCooldown = CooldownTime;
+                Time.timeScale = 1;
+                Time.fixedDeltaTime = 0.02f * Time.timeScale;
+            }
+        }
+    }
+
     private const float TimeBeforeGameOver = 2f;
 
     private const float StartTimeSeconds = 0;
@@ -210,6 +296,8 @@ public class GameManager : MonoBehaviour
     public const float MaxBulletSpeed = 10;
     public const float MinIncDamageMultiplyer = 0.1f;
     public const float MaxIncDamageMultiplyer = 5f;
+    public const float CooldownTime = 60;
+    public const float SkillTime = 10;
 
     private void Awake()
     {
@@ -217,36 +305,21 @@ public class GameManager : MonoBehaviour
         _levelUI = GameObject.Find("LevelUI").GetComponent<LevelUI>();
     }
 
-    /* Multiple levels not implemented
- 
-    private void OnEnable() => SceneManager.sceneLoaded += OnLevelLoading;
-
-    private void OnDisable() => SceneManager.sceneLoaded -= OnLevelLoading;
-
-    private void OnLevelLoading(Scene scene, LoadSceneMode mode) => AdaptGameManager();
-
-    private void AdaptGameManager()
-    {
-        _levelUI = GameObject.Find("LevelUI").GetComponent<LevelUI>();
-        if (LoadedGameState)
-        {
-            GameStateData gameState = SaveManager.LoadGameState();
-            CurrentTime = gameState.Time;
-            Health = gameState.Health;
-            Speed = gameState.PlayerSpeed;
-            BombsCount = gameState.BombAmount;
-            ExplosionSize = gameState.ExplosionSize;
-        }
-        else CurrentTime = START_TIME_SECONDS;
-        _levelUI.SetHealth(_health);
-    }
-    
-     */
-
     private void Update()
     {
-        if (State == GameState.Pause) return;
-        if (CurrentTime > 0) CurrentTime -= 1 * Time.deltaTime;
+        if (State == GameState.Pause)
+            return;
+        if (CurrentTime > 0)
+            CurrentTime -= 1 * Time.deltaTime;
+        if (SkillActive)
+        {
+            SkillTimePassed += Time.deltaTime * Mathf.Pow(SkillTimeScale, -1);
+            Time.timeScale = SkillTimeScale;
+            Time.fixedDeltaTime = 0.02f * Time.timeScale;
+        }
+        else if (SkillCooldown > 0)
+            SkillCooldown -= Time.deltaTime;
+
     }
 
     private IEnumerator EndGame()

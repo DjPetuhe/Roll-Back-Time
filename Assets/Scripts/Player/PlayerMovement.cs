@@ -25,16 +25,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private (int, int) _cellPosition;
-    public (int, int) CellPosition
-    {
-        get { return _cellPosition; }
-        private set
-        {
-            _cellPosition = value;
-        }
-    }
-
     private Vector2 _direction;
 
     private const float Epsilon = 0.001f;
@@ -43,25 +33,29 @@ public class PlayerMovement : MonoBehaviour
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         _playerHealthControl = GetComponent<PlayerHealthControl>();
-        CellPosition = (Mathf.RoundToInt(Rb2d.position.y), Mathf.RoundToInt(Rb2d.position.x));
     }
 
     private int FindDirection()
     {
         if (_direction.sqrMagnitude > Epsilon)
         {
-            if (_direction.x > _direction.y) Dir = (_direction.x > -_direction.y) ? 2 : 1;
-            else Dir = (_direction.x < -_direction.y) ? 4 : 3;
+            if (_direction.x > _direction.y)
+                Dir = (_direction.x > -_direction.y) ? 2 : 1;
+            else
+                Dir = (_direction.x < -_direction.y) ? 4 : 3;
         }
         return Dir;
     }
 
     private void Update()
     {
-        if (_playerHealthControl.State == PlayerState.Dead) return;
-        if (_gameManager.State == GameState.Pause || _gameManager.State == GameState.GameEnd) return;
+        if (_playerHealthControl.State == PlayerState.Dead)
+            return;
+        if (_gameManager.State == GameState.Pause || _gameManager.State == GameState.GameEnd)
+            return;
         _direction.x = Joystick.Horizontal;
         _direction.y = Joystick.Vertical;
+        _gameManager.SkillTimeScale = _direction.magnitude * 0.9f + 0.1f;
         ConfigureAnimator();
     }
 
@@ -84,8 +78,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Rb2d.MovePosition(Rb2d.position + _gameManager.Speed * Time.fixedDeltaTime * _direction);
-        (int, int) currentPos = (Mathf.RoundToInt(Rb2d.position.y), Mathf.RoundToInt(Rb2d.position.x));
-        if (currentPos != CellPosition) CellPosition = currentPos;
     }
 
     public void SpeedUpBy(float speedUp) => _gameManager.Speed += speedUp;

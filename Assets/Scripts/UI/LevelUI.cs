@@ -15,6 +15,11 @@ public class LevelUI : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] Button PauseButton;
     [SerializeField] Button ResumeButton;
+    [SerializeField] Button SkillButton;
+
+    [Header("CoolDowns")]
+    [SerializeField] Image CooldownImage;
+    [SerializeField] Image SkillTimeImage;
 
     [Header("Panel")]
     [SerializeField] GameObject Panel;
@@ -74,5 +79,17 @@ public class LevelUI : MonoBehaviour
         PerksUI.SetActive(true);
         _perkUI.RandomizePerks();
         _gameManager.PauseGame();
+    }
+
+    public void FillCooldownImage(float percent) => CooldownImage.fillAmount = percent;
+
+    public void DeactivateCooldownImage() => CooldownImage.enabled = false;
+
+    public void FillSkillTimeImage(float percent) => SkillTimeImage.fillAmount = percent;
+
+    public void DeactivateSkillTimeImage()
+    {
+        SkillTimeImage.enabled = false;
+        CooldownImage.enabled = true;
     }
 }
