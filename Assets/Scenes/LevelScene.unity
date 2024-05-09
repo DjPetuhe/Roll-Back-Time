@@ -2449,7 +2449,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 870657521}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2487,7 +2487,7 @@ GameObject:
   - component: {fileID: 880185343}
   - component: {fileID: 880185344}
   - component: {fileID: 880185345}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -3738,7 +3738,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1309449711}
   - component: {fileID: 1309449712}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Wand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3955,7 +3955,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1339714339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}

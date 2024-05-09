@@ -26,6 +26,16 @@ public class Bullet : MonoBehaviour
     {
         _startingPos = transform.position;
         GetComponent<SpriteRenderer>().color = ColorByState();
+        if (State == EnvironemtnState.Friendly)
+        {
+            gameObject.layer = LayerMask.NameToLayer("PlayerProjectile");
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), gameObject.layer);
+        }
+        else if (State == EnvironemtnState.Hostile)
+        {
+            gameObject.layer = LayerMask.NameToLayer("EnemyProjectile");
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), gameObject.layer);
+        }
     }
 
     private void FixedUpdate()
@@ -44,7 +54,10 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy"))
         {
             if (State == EnvironemtnState.Hostile)
+            {
+                DestroyBullet();
                 return;
+            }
 
             other.gameObject.GetComponent<EnemyHealthControle>().DealDamage(Damage);
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Direction * KnockBack);
@@ -52,7 +65,10 @@ public class Bullet : MonoBehaviour
         else if (other.gameObject.CompareTag("Player"))
         {
             if (State == EnvironemtnState.Friendly)
+            {
+                DestroyBullet();
                 return;
+            }
 
             other.gameObject.GetComponent<PlayerHealthControl>().DealDamage(Mathf.RoundToInt(Damage));
             other.gameObject.GetComponent<Rigidbody2D>().AddForce(Direction * KnockBack);

@@ -10,10 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 2131189121349509825}
   - component: {fileID: 7556950736113722962}
-  - component: {fileID: 2569280528999555635}
   - component: {fileID: -9166854117926125064}
   - component: {fileID: -2031993844329427334}
-  m_Layer: 0
+  - component: {fileID: 3396054870624730350}
+  - component: {fileID: -8683511177139001902}
+  - component: {fileID: 2569280528999555635}
+  - component: {fileID: 8625297011911010678}
+  m_Layer: 8
   m_Name: EnemyCircleHard
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,32 +79,17 @@ SpriteRenderer:
   m_SortingLayerID: 177232711
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 255, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 1576031485842391493, guid: 0a210a6ac82f1214a89ccd8911af22c7, type: 3}
+  m_Color: {r: 1, g: 0.08203981, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2569280528999555635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 132505487582019280}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44ed15c6956cadc4d877595d4d4412dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHP: 100
-  SpriteRenderer: {fileID: 7556950736113722962}
-  DeathParticlesPrefab: {fileID: 7297090815858143179, guid: 8e8099038979a0a41afb2c5aea49dc55, type: 3}
 --- !u!58 &-9166854117926125064
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -134,9 +122,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.1}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!50 &-2031993844329427334
 Rigidbody2D:
   serializedVersion: 4
@@ -164,3 +152,85 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &3396054870624730350
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132505487582019280}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &-8683511177139001902
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132505487582019280}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.12
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18
+  m_BaseOffset: 0.18
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &2569280528999555635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132505487582019280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44ed15c6956cadc4d877595d4d4412dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHP: 100
+  SpriteRenderer: {fileID: 7556950736113722962}
+  Animator: {fileID: 3396054870624730350}
+  DeathParticlesPrefab: {fileID: 7297090815858143179, guid: 8e8099038979a0a41afb2c5aea49dc55, type: 3}
+--- !u!114 &8625297011911010678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 132505487582019280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faa7b26bd5c82734caf334a96764fcab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <Agent>k__BackingField: {fileID: 0}
+  <Speed>k__BackingField: 1
+  <Damage>k__BackingField: 15
+  <Sprite>k__BackingField: {fileID: 7556950736113722962}
+  <Animator>k__BackingField: {fileID: 3396054870624730350}
+  BulletPrefab: {fileID: 389224471966766946, guid: 936af37155b65d343a9bbce1c3c3e2d5, type: 3}
+  Range: 6
+  BulletSpeed: 2.5
+  ProjectileNumbers: 20
+  MinAttackTime: 3
+  MaxAttackTime: 10

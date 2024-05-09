@@ -27,7 +27,6 @@ public class PlayerHealthControl : MonoBehaviour
     public void DealDamage(int damage)
     {
         _gameManager.CurHealth -= Mathf.RoundToInt(damage * _gameManager.IncomingDamageMultiplyer);
-        Debug.Log($"DMG: {Mathf.RoundToInt(damage * _gameManager.IncomingDamageMultiplyer)}");
         if (_gameManager.CurHealth != 0)
             StartCoroutine(InvincibleFrames());
     }
@@ -52,9 +51,9 @@ public class PlayerHealthControl : MonoBehaviour
         SpriteRenderer.color = s_damageColor;
         GetComponent<PlayerMovement>().StopMovement();
         yield return new WaitForSeconds(DeathAnimationTime);
-        Destroy(gameObject);
         GameObject particles = Instantiate(DeathParticlesPrefab, gameObject.transform.position, Quaternion.identity);
         particles.GetComponent<ParticleSystem>().Play();
+        Destroy(gameObject);
     }
 
     public void RestoreHealth(int heal) => _gameManager.CurHealth += heal;

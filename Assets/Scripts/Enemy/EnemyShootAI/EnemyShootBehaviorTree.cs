@@ -20,6 +20,10 @@ public class EnemyShootBehaviorTree : BehaviorTree
     [SerializeField] float AttackDistance;
     [SerializeField] float RetreatDistance;
 
+    [Header("Components")]
+    [SerializeField] Animator Animator;
+    [SerializeField] SpriteRenderer Sprite;
+
     protected override void Start()
     {
         Agent.updateRotation = false;
@@ -31,21 +35,29 @@ public class EnemyShootBehaviorTree : BehaviorTree
     protected override BehaviorNode SetupTree()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        BehaviorNode root = new Selector(new()
+        BehaviorNode root = new Sequence(new()
         {
-            new Sequence(new()
+            new CheckPlayerExistance(player),
+            new Selector(new()
             {
-                new CheckPlayerInDistance(transform, player.transform, RetreatDistance),
-                new TaskRetreat(Agent, transform, player.transform)
-            }),
-            new Sequence(new()
-            {
-                new CheckPlayerInDistance(transform, player.transform, AttackDistance),
-                new TaskAttack(Agent, BulletPrefab, transform, player.transform, Damage, Range, TimeBetweenShots, BulletSpeed)
-            }),
-            new TaskFollow(Agent, player.transform)
+                new Sequence(new()
+                {
+                    new CheckPlayerAvailability(transform, player.transform),
+                    new CheckPlayerInDistance(transform, player.transform, AttackDistance),
+                    new Selector(new()
+                    {
+                        new Sequence(new()
+                        {
+                            new CheckPlayerInDistance(transform, player.transform, RetreatDistance),
+                            new TaskRetreat(Agent, transform, player.transform),
+                            new TaskAttack(this, Agent, BulletPrefab, Animator, Sprite, transform, player.transform, Damage, Range, TimeBetweenShots, BulletSpeed, false)
+                        }),
+                        new TaskAttack(this, Agent, BulletPrefab, Animator, Sprite, transform, player.transform, Damage, Range, TimeBetweenShots, BulletSpeed)
+                    })
+                }),
+                new TaskFollow(Agent, Sprite, transform, player.transform)
+            })
         });
-
         return root;
     }
 }

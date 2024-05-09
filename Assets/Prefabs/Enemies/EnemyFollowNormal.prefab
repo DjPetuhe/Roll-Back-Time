@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 5046389436998767510}
   - component: {fileID: 2386865258779491093}
   - component: {fileID: 313114410922110008}
+  - component: {fileID: -2274607916588204971}
   - component: {fileID: -7550602157991767340}
   - component: {fileID: 806375316384791686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: EnemyFollowNormal
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -32,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -78,12 +79,12 @@ SpriteRenderer:
   m_SortingLayerID: 177232711
   m_SortingLayer: 1
   m_SortingOrder: 2
-  m_Sprite: {fileID: 2747690628134850419, guid: 16037dbd798344f57a526d53d48f5ead, type: 3}
-  m_Color: {r: 0.990566, g: 0.8907016, b: 0, a: 1}
+  m_Sprite: {fileID: 2129977301182375049, guid: b438465a32eb63243a7889eb1f400d29, type: 3}
+  m_Color: {r: 0.8784709, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.64, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -123,7 +124,7 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.1
 --- !u!50 &2386865258779491093
 Rigidbody2D:
   serializedVersion: 4
@@ -160,7 +161,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 392336726134469037}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.1
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -169,10 +170,31 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 0.8828125
-  m_BaseOffset: 0.44140625
+  m_Height: 0.21
+  m_BaseOffset: 0.11
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-2274607916588204971
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392336726134469037}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &-7550602157991767340
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxHP: 125
   SpriteRenderer: {fileID: 6539265374012897562}
+  Animator: {fileID: -2274607916588204971}
   DeathParticlesPrefab: {fileID: 7297090815858143179, guid: 8e8099038979a0a41afb2c5aea49dc55, type: 3}
 --- !u!114 &806375316384791686
 MonoBehaviour:
@@ -200,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2cecbccc6fcb904e86d503384b8be9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Agent: {fileID: 313114410922110008}
-  Speed: 1.5
-  Damage: 15
+  <Agent>k__BackingField: {fileID: 313114410922110008}
+  <Speed>k__BackingField: 2.25
+  <Damage>k__BackingField: 15
+  <Sprite>k__BackingField: {fileID: 6539265374012897562}
+  <Animator>k__BackingField: {fileID: -2274607916588204971}

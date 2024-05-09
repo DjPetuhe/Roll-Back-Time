@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5322597633844803439}
   - component: {fileID: 3625665749693911017}
   - component: {fileID: 7237910739692210400}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -136,6 +136,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitParticlePrefab: {fileID: 7304202680911400000, guid: 0952823312eaa9c439f0c7986349329d, type: 3}
   FallParticlePrefab: {fileID: 7304202680911400000, guid: 0952823312eaa9c439f0c7986349329d, type: 3}
+  <Direction>k__BackingField: {x: 0, y: 0}
+  <Speed>k__BackingField: 0
+  <Range>k__BackingField: 0
+  <Damage>k__BackingField: 0
+  <KnockBack>k__BackingField: 0
+  <State>k__BackingField: 0
 --- !u!50 &7237910739692210400
 Rigidbody2D:
   serializedVersion: 4

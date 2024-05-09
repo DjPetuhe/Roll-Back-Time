@@ -6,8 +6,9 @@ public class EnemyHealthControle : MonoBehaviour
     [Header("Health Points")]
     [SerializeField] float MaxHP;
 
-    [Header("Sprite Renderer")]
+    [Header("Components")]
     [SerializeField] SpriteRenderer SpriteRenderer;
+    [SerializeField] Animator Animator;
 
     [Header("Particle System prefab")]
     [SerializeField] GameObject DeathParticlesPrefab;
@@ -36,6 +37,7 @@ public class EnemyHealthControle : MonoBehaviour
 
     private IEnumerator DamageFrames()
     {
+        Animator.SetTrigger("Hit");
         _triggeredTimes++;
         SpriteRenderer.color = s_damageColor;
         yield return new WaitForSeconds(DamageColorTime);
@@ -48,7 +50,6 @@ public class EnemyHealthControle : MonoBehaviour
     public IEnumerator Death()
     {
         SpriteRenderer.color = s_damageColor;
-        //GetComponent<PlayerMovement>().StopMovement(); stop ai movement
         yield return new WaitForSeconds(DeathAnimationTime);
 
         Destroy(gameObject);
