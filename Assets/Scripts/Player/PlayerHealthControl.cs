@@ -26,9 +26,11 @@ public class PlayerHealthControl : MonoBehaviour
 
     public void DealDamage(int damage)
     {
+        if (_gameManager.CurHealth <= 0 || _gameManager.State == GameState.GameEnd)
+            return;
+
         _gameManager.CurHealth -= Mathf.RoundToInt(damage * _gameManager.IncomingDamageMultiplyer);
-        if (_gameManager.CurHealth != 0)
-            StartCoroutine(InvincibleFrames());
+        StartCoroutine(InvincibleFrames());
     }
 
     private IEnumerator InvincibleFrames()

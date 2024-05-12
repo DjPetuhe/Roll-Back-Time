@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -29,6 +30,11 @@ public class PlayerMovement : MonoBehaviour
 
     private const float Epsilon = 0.001f;
 
+    public bool Record { get; set; } = false;
+    public bool Rewind { get; set; } = false;
+    private Stack<Vector3> _positions = new();
+    private Stack<Vector2> _directions = new();
+
     private void OnEnable()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -53,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
             return;
         if (_gameManager.State == GameState.Pause || _gameManager.State == GameState.GameEnd)
             return;
+        if (Rewind)
+            return;
         _direction.x = Joystick.Horizontal;
         _direction.y = Joystick.Vertical;
         _gameManager.SkillTimeScale = _direction.magnitude * 0.9f + 0.1f;
@@ -61,12 +69,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void ConfigureAnimator()
     {
-        /* Not yet animated
-        animator.SetFloat("Horizontal", _direction.x);
-        animator.SetFloat("Vertical", _direction.y);
-        animator.SetFloat("Speed", _direction.magnitude);
-        animator.SetInteger("Direction", FindDirection());
-        */
+        Animator.SetFloat("Horizontal", _direction.x);
+        Animator.SetFloat("Vertical", _direction.y);
+        Animator.SetFloat("Speed", _direction.magnitude);
+        Animator.SetInteger("Direction", FindDirection());
     }
 
     public void StopMovement()
@@ -77,6 +83,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Record)
+        {
+            _positions.Push(transform.position);
+            _directions.Push(_direction);
+        }
+        if (Rewind)
+        {
+            if (_positions.Count > 0)
+                transform.position = _positions.Pop();
+            if (_directions.Count > 0)
+            {
+                _direction = _directions.Pop();
+                ConfigureAnimator();
+            }
+            return;
+        }
         Rb2d.MovePosition(Rb2d.position + _gameManager.Speed * Time.fixedDeltaTime * _direction);
     }
 

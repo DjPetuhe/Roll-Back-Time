@@ -17,6 +17,8 @@ public class PlayerShooting : MonoBehaviour
     private GameManager _gameManager;
     private Vector2 _direction;
 
+    public bool Rewind { get; set; } = false;
+
     private void OnEnable()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
@@ -27,7 +29,7 @@ public class PlayerShooting : MonoBehaviour
         _direction.y = Joystick.Vertical;
         _direction.x = Joystick.Horizontal;
 
-        if (_direction == Vector2.zero)
+        if (_direction == Vector2.zero || Rewind)
             Wand.SetActive(false);
         else
         {

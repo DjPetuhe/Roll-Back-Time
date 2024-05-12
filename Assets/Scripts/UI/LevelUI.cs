@@ -11,6 +11,8 @@ public class LevelUI : MonoBehaviour
     [Header("Health Bar")]
     [SerializeField] Image HealthBar;
     [SerializeField] TextMeshProUGUI HealthText;
+    [SerializeField] GameObject BossHealthBar;
+    [SerializeField] Image BossHealth;
 
     [Header("Buttons")]
     [SerializeField] Button PauseButton;
@@ -21,8 +23,9 @@ public class LevelUI : MonoBehaviour
     [SerializeField] Image CooldownImage;
     [SerializeField] Image SkillTimeImage;
 
-    [Header("Panel")]
+    [Header("Panels")]
     [SerializeField] GameObject Panel;
+    [SerializeField] GameObject RewindPanel;
 
     [Header("End Game UI")]
     [SerializeField] GameObject GameOverUI;
@@ -31,6 +34,9 @@ public class LevelUI : MonoBehaviour
 
     [Header("Perks UI")]
     [SerializeField] GameObject PerksUI;
+
+    [Header("Time")]
+    [SerializeField] float TimeBeforeGameOver;
 
     private GameManager _gameManager;
     private PerkUI _perkUI;
@@ -59,6 +65,9 @@ public class LevelUI : MonoBehaviour
         HealthText.text = $"{health} / {maxHealth}";
     }
 
+    public void SetBossHealth(float health, float maxHealth) => BossHealth.fillAmount = health / maxHealth;
+
+    public void ActivateBossHealth() => BossHealthBar.SetActive(true);
     public void Restart() => SceneManager.LoadScene("LevelScene");
 
     public void QuitToMenu() => SceneManager.LoadScene("MainMenuScene");
@@ -92,4 +101,13 @@ public class LevelUI : MonoBehaviour
         SkillTimeImage.enabled = false;
         CooldownImage.enabled = true;
     }
+
+    public void DisableSkill()
+    {
+        SkillButton.interactable = false;
+        CooldownImage.color = Color.clear;
+        SkillTimeImage.color = Color.clear;
+    }
+
+    public void RewindPanelActivation(bool active) => RewindPanel.SetActive(active);
 }

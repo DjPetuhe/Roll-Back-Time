@@ -23,27 +23,36 @@ public class EnemyCircleAI : EnemyFollowAI
 
     private IEnumerator AttackCoroutine()
     {
-        Animator.SetTrigger("Ability");
-        Sprite.flipX = _player.transform.position.x < transform.position.x;
-
-        yield return new WaitForSeconds(0.2f);
-
-        float angleStep = 360f / ProjectileNumbers;
-        Vector3 startPos = new(1, -0.2f);
-        for (int i = 0; i < ProjectileNumbers; i++)
+        if (_player != null)
         {
-            float angle = i * angleStep;
-            Vector3 dir = Quaternion.Euler(0, 0, angle) * startPos;
-            GameObject bullet = Instantiate(BulletPrefab, transform.position + dir, Quaternion.identity);
-            Bullet bulletScript = bullet.GetComponent<Bullet>();
-            bulletScript.Direction = dir.normalized;
-            bulletScript.Speed = BulletSpeed;
-            bulletScript.Damage = Damage;
-            bulletScript.Range = Range;
-            bulletScript.KnockBack = 100; //temporary?
-            bulletScript.State = EnvironemtnState.Hostile;
-        }
+            Animator.SetTrigger("Ability");
+            Sprite.flipX = _player.transform.position.x < transform.position.x;
 
-        Invoke(nameof(Attack), Random.Range(MinAttackTime, MaxAttackTime));
+            yield return new WaitForSeconds(0.2f);
+
+            float angleStep = 360f / ProjectileNumbers;
+            Vector3 startPos = new(1, -0.2f);
+            for (int i = 0; i < ProjectileNumbers; i++)
+            {
+                float angle = i * angleStep;
+                Vector3 dir = Quaternion.Euler(0, 0, angle) * startPos;
+                Vector3 pos = transform.position + dir;
+                
+                Collider2D collider = Physics2D.OverlapCircle(pos, 0.2f);
+                if (collider != null &&  !collider.CompareTag("Enemy"))
+                    continue;
+
+                GameObject bullet = Instantiate(BulletPrefab, pos, Quaternion.identity);
+                Bullet bulletScript = bullet.GetComponent<Bullet>();
+                bulletScript.Direction = dir.normalized;
+                bulletScript.Speed = BulletSpeed;
+                bulletScript.Damage = Damage;
+                bulletScript.Range = Range;
+                bulletScript.KnockBack = 100; //temporary?
+                bulletScript.State = EnvironemtnState.Hostile;
+            }
+
+            Invoke(nameof(Attack), Random.Range(MinAttackTime, MaxAttackTime));
+        }
     }
 }

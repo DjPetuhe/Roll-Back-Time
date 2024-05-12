@@ -4,29 +4,33 @@ using System.Collections;
 public class EnemyHealthControle : MonoBehaviour
 {
     [Header("Health Points")]
-    [SerializeField] float MaxHP;
+    [SerializeField]
+    protected float MaxHP;
 
     [Header("Components")]
-    [SerializeField] SpriteRenderer SpriteRenderer;
-    [SerializeField] Animator Animator;
+    [SerializeField]
+    protected SpriteRenderer SpriteRenderer;
+    [SerializeField]
+    protected Animator Animator;
 
     [Header("Particle System prefab")]
-    [SerializeField] GameObject DeathParticlesPrefab;
+    [SerializeField]
+    protected GameObject DeathParticlesPrefab;
 
+    protected float _hp;
     private int _triggeredTimes = 0;
-    private float _hp;
 
-    private static Color s_damageColor = new(255, 0, 0);
-    private static Color s_defaultColor = new(255, 255, 255);
+    protected static Color s_damageColor = new(255, 0, 0);
+    protected static Color s_defaultColor = new(255, 255, 255);
 
-    private const float DamageColorTime = 0.5f;
-    private const float DeathAnimationTime = 1f;
+    protected const float DamageColorTime = 0.5f;
+    protected const float DeathAnimationTime = 1f;
 
     public Waves Wave { get; set; }
 
-    private void OnEnable() => _hp = MaxHP;
+    protected void OnEnable() => _hp = MaxHP;
 
-    public void DealDamage(float damage)
+    public virtual void DealDamage(float damage)
     {
         _hp -= damage;
         if (_hp <= 0)
@@ -35,7 +39,7 @@ public class EnemyHealthControle : MonoBehaviour
             StartCoroutine(DamageFrames());
     }
 
-    private IEnumerator DamageFrames()
+    protected IEnumerator DamageFrames()
     {
         Animator.SetTrigger("Hit");
         _triggeredTimes++;
@@ -47,7 +51,7 @@ public class EnemyHealthControle : MonoBehaviour
             SpriteRenderer.color = s_defaultColor;
     }
 
-    public IEnumerator Death()
+    public virtual IEnumerator Death()
     {
         SpriteRenderer.color = s_damageColor;
         yield return new WaitForSeconds(DeathAnimationTime);

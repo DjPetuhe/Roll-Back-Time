@@ -73,7 +73,7 @@ public class TaskAttack : BehaviorNode
         _sprite.flipX = _playerTransform.position.x < _transform.position.x;
 
         yield return new WaitForSeconds(0.2f);
-        GameObject bullet = Object.Instantiate(_bulletPrefab, _transform.position + dir, Quaternion.identity);
+        GameObject bullet = Object.Instantiate(_bulletPrefab, _transform.position, Quaternion.identity);
         Bullet bulletScript = bullet.GetComponent<Bullet>();
         bulletScript.Direction = dir;
         bulletScript.Speed = _bulletSpeed;

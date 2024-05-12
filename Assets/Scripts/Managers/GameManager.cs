@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,8 +30,8 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = value switch
             {
-                GameState.Play => SkillTimeScale,
-                _ => 0
+                GameState.Pause => 0,
+                _ => SkillTimeScale
             };
             _state = value;
         }
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
 
             _levelUI.SetHealth(_curHealth, Health);
             if (_curHealth == 0)
-                StartCoroutine(EndGame());
+                StartCoroutine(EndGame(true));
         }
     }
 
@@ -271,6 +272,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public bool Record { get; set; } = false;
+    public bool Rewind { get; set; } = false;
+
+    private readonly Stack<int> _hps = new();
+
     private const float TimeBeforeGameOver = 2f;
 
     private const float StartTimeSeconds = 0;
@@ -303,6 +309,20 @@ public class GameManager : MonoBehaviour
     {
         State = GameState.Play;
         _levelUI = GameObject.Find("LevelUI").GetComponent<LevelUI>();
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("PlayerProjectile"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("EnemyProjectile"));
+        Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyProjectile"), LayerMask.NameToLayer("PlayerProjectile"));
+    }
+
+    private void FixedUpdate()
+    {
+        if (Record)
+            _hps.Push(CurHealth);
+        else if (Rewind)
+        {
+            if (_hps.Count > 0)
+                CurHealth = _hps.Pop();
+        }
     }
 
     private void Update()
@@ -310,7 +330,7 @@ public class GameManager : MonoBehaviour
         if (State == GameState.Pause)
             return;
         if (CurrentTime > 0)
-            CurrentTime -= 1 * Time.deltaTime;
+            CurrentTime -= Time.deltaTime;
         if (SkillActive)
         {
             SkillTimePassed += Time.deltaTime * Mathf.Pow(SkillTimeScale, -1);
@@ -319,21 +339,17 @@ public class GameManager : MonoBehaviour
         }
         else if (SkillCooldown > 0)
             SkillCooldown -= Time.deltaTime;
-
     }
 
-    private IEnumerator EndGame()
-    {
-        _levelUI.SwitchPauseStatus(false);
-        yield return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthControl>().Death();
-        yield return new WaitForSeconds(TimeBeforeGameOver);
-        EndGameUI(true);
-    }
-
-    public void EndGameUI(bool gameOver)
+    public IEnumerator EndGame(bool gameOver)
     {
         State = GameState.GameEnd;
+        _levelUI.SwitchPauseStatus(false);
+        if (gameOver)
+            yield return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHealthControl>().Death();
+        yield return new WaitForSeconds(TimeBeforeGameOver);
         _levelUI.EndGamePopUp(gameOver);
+        Time.timeScale = 0;
     }
 
     public void ResumeGame() => State = GameState.Play;
@@ -357,5 +373,11 @@ public class GameManager : MonoBehaviour
         BulletSpeed += perkChanges.BulletSpeedChange;
         BulletSpeed *= perkChanges.BulletSpeedMultiplyer;
         IncomingDamageMultiplyer *= perkChanges.IncomingDamageMultiplyer;
+    }
+
+    public void DeactivateSkill()
+    {
+        SkillTimePassed = SkillTime;
+        SkillActive = false;
     }
 }
