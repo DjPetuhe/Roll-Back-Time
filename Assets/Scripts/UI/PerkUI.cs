@@ -18,6 +18,9 @@ public class PerkUI : MonoBehaviour
     [SerializeField] Sprite rareImage;
     [SerializeField] Sprite balancedImage;
 
+    [Header("Perk Manager")]
+    [SerializeField] PerkManager PerkManager;
+
     private static readonly Random Rand = new();
 
     private GameManager _gameManager;
@@ -30,7 +33,7 @@ public class PerkUI : MonoBehaviour
     private void Awake()
     {
         _gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        _perks = LoadManager.ReadPerksFromJson();
+        _perks = PerkManager.ReadPerksFromJson();
     }
 
     public void ChooseOption(int index)
