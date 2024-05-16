@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="PlayerHealthControl">
+    <Position X="2.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQASAAAAgAAwBAAAAAAAAAAAEAgAAAABEAAKAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerHealthControl.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerMovement">
+    <Position X="5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AUQAAQAASgAAAAAgCCAAAQAAABAUQQAAAAAIAAQADAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerMovement.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+      <Field Name="_playerHealthControl" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PlayerShooting">
+    <Position X="7" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAQAACAAAEAAAAAAAAAAAABAABAgAAAAIACAACAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerShooting.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+      <Field Name="Joystick" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="BossHealthControle">
+    <Position X="9.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQACAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAQEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\BossHealthControle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+      <Field Name="AI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EnemyHealthControle">
+    <Position X="11.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQBQAAAgAAQABAAEAAAAAAACAAgAAAACAQAKAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyHealthControle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BossActivation">
+    <Position X="9.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAACAAAAAAAAAAAAEAAAAAAAAAAAAAAQEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\BossActivation.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Chest">
+    <Position X="7" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAEAACAAAAAABAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\RoomsEvents\Chest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="2.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAjEoklICgIBEAAHGAABAXcGAXSAhAIF5TCQRUA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BossAI" Collapsed="true">
+    <Position X="11.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQCAgADAC8AACZBGAQAAKABAABAACABgACAACCASREA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\BossAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Joystick" Collapsed="true">
+    <Position X="11.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACABACIACRICAAEACBAASICAAEAADAKAQQCCAEAIAA=</HashCode>
+      <FileName>Assets\DownloadedAssets\Joystick Pack\Scripts\Base\Joystick.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

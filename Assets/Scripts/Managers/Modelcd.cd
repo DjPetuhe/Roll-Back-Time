@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GameManager">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQACAjEoklICgIBEAAHGAABAXcGAXSAhAIF5TCQRUA=</HashCode>
+      <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_levelUI" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="PerkManager">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Managers\PerkManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelCreator">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAEAAAAAACAACAAAAAAAAAAAAAAACEAAAAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\LevelGeneration\LevelCreator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelGenerator">
+    <Position X="8.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gQAEAACAAAAQAAQACAAAAAAICQAAAIAAEAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelGeneration\LevelGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RoomChooser">
+    <Position X="10.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>+ECUA4HCAAAICAAAAAAACAEDAgAAAAAAEAAAIQBQAAA=</HashCode>
+      <FileName>Assets\Scripts\LevelGeneration\RoomChooser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyFollowAI">
+    <Position X="8.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAACAACAAAAAAAAEACAABAAAAAwAQAAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyFollowAI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="_playerHealth" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="EnemyCircleAI">
+    <Position X="10.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAAGAACAAIAAAAAAAAAIAAAAAAAAAAACAACAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyCircleAI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BossAI">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQCAgADAC8AACZBGAQAAKABAABAACABgACAACCASREA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\BossAI.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_gameManager" />
+      <Field Name="_ui" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="LevelUI" Collapsed="true">
+    <Position X="3.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAgBIsAiAQoABABAAhQIAiBSAAAAQABQBCQAigAQEA=</HashCode>
+      <FileName>Assets\Scripts\UI\LevelUI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerHealthControl" Collapsed="true">
+    <Position X="10.75" Y="14.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAQASAAAAgAAwBAAAAAAAAAAAEAgAAAABEAAKAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerHealthControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BehaviorNode" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAQgAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BehaviorTree\BehaviorNode.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BehaviorTree">
+    <Position X="0.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAQAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BehaviorTree\BehaviorTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Selector">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BehaviorTree\Selector.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sequence">
+    <Position X="9" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\BehaviorTree\Sequence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemyShootBehaviorTree">
+    <Position X="0.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACEAGAACAAAAAEAAACBAABAAAAQQAAAACQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\EnemyShootBehaviorTree.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckPlayerInDistance">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAgAAAAAAAAQAAAAAAAAAIAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\CheckPlayerInDistance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckPlayerExistance">
+    <Position X="6.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\CheckPlayerExistance.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CheckPlayerAvailability">
+    <Position X="8" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\CheckPlayerAvailability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskAttack">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAABAACFAEAAAEQAAAgAAAIAABAAAICEAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\TaskAttack.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskFollow">
+    <Position X="10" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAEAgAAQAAAgAAAAAAAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\TaskFollow.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TaskRetreat">
+    <Position X="11.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAEAgAAQAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyShootAI\TaskRetreat.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
