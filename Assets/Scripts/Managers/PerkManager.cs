@@ -1,6 +1,5 @@
-﻿using System.IO;
+﻿using UnityEngine;
 using System.Linq;
-using UnityEngine;
 using System.Collections.Generic;
 
 public class PerkManager : MonoBehaviour

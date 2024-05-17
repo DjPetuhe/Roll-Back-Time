@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - LevelUI
   - NavMesh
+  - PreferencesManager
+  - LevelCreator
   layers:
   - Default
   - TransparentFX

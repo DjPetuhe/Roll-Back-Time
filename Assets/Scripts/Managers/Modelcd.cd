@@ -3,7 +3,7 @@
   <Class Name="GameManager">
     <Position X="6.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAQACAjEoklICgIBEAAHGAABAXcGAXSAhAIF5TCQRUA=</HashCode>
+      <HashCode>AAQACAjEoklICgIBEAAHGAABAXcGAXSQhAIF5TCQRUA=</HashCode>
       <FileName>Assets\Scripts\Managers\GameManager.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
@@ -15,13 +15,6 @@
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Scripts\Managers\PerkManager.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="LevelCreator">
-    <Position X="8.5" Y="2.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AEAAAAEAAAAAACAACAAAAAAAAAAAAAAACEAAAAAAAEA=</HashCode>
-      <FileName>Assets\Scripts\LevelGeneration\LevelCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LevelGenerator">
@@ -62,8 +55,8 @@
       <FileName>Assets\Scripts\Enemy\BossAI.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="_gameManager" />
       <Field Name="_ui" />
+      <Field Name="_gameManager" />
     </ShowAsAssociation>
   </Class>
   <Class Name="LevelUI" Collapsed="true">
@@ -78,6 +71,13 @@
     <TypeIdentifier>
       <HashCode>CAAAAAQASAAAAgAAwBAAAAAAAAAAAEAgAAAABEAAKAA=</HashCode>
       <FileName>Assets\Scripts\Player\PlayerHealthControl.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LevelCreator">
+    <Position X="8.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gESAAAEACAAAACCADAAQAAAAAAAAAgAAiEAIAgAAAEA=</HashCode>
+      <FileName>Assets\Scripts\LevelGeneration\LevelCreator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />

@@ -16,4 +16,10 @@ public class Chest : MonoBehaviour
         GameObject.FindGameObjectWithTag("LevelUI").GetComponent<LevelUI>().ChoosingPerks();
         GetComponent<Waves>().StartWave();
     }
+
+    public void Deactivate()
+    {
+        OpenedChest.SetActive(true);
+        ClosedChest.SetActive(false);
+    }
 }

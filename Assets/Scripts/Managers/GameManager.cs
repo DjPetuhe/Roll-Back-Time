@@ -5,6 +5,9 @@ using System.Collections.Generic;
 public class GameManager : MonoBehaviour
 {
     private LevelUI _levelUI;
+    private PreferencesManager _preferences;
+
+    [SerializeField] GameObject Player;
 
     [SerializeField]
     private float _currentTime = StartTimeSeconds;
@@ -312,6 +315,10 @@ public class GameManager : MonoBehaviour
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("PlayerProjectile"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Enemy"), LayerMask.NameToLayer("EnemyProjectile"));
         Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("EnemyProjectile"), LayerMask.NameToLayer("PlayerProjectile"));
+        _preferences = GameObject.FindGameObjectWithTag("PreferencesManager").GetComponent<PreferencesManager>();
+        if (_preferences.ContinueRun)
+            LoadPlayerStats(SaveLoadManager.LoadLevelFromJson());
+
     }
 
     private void FixedUpdate()
@@ -379,5 +386,39 @@ public class GameManager : MonoBehaviour
     {
         SkillTimePassed = SkillTime;
         SkillActive = false;
+    }
+
+    public PlayerStats GetPlayerState()
+    {
+        return new()
+        {
+            CurHealth = CurHealth,
+            Health = Health,
+            Speed = Speed,
+            TimeBetweenShots = TimeBetweenShots,
+            Damage = Damage,
+            Range = Range,
+            BulletSpeed = BulletSpeed,
+            IncomingDamageMultiplyer = IncomingDamageMultiplyer,
+            ClearedWaves = ClearedWaves
+        };
+    }
+
+    public Vector3 GetPlayerPos() => Player.transform.position;
+
+    public void LoadPlayerStats(Level level)
+    {
+        CurHealth = level.PlayerStats.CurHealth;
+        Health = level.PlayerStats.Health;
+        Speed = level.PlayerStats.Speed;
+        TimeBetweenShots = level.PlayerStats.TimeBetweenShots;
+        Damage = level.PlayerStats.Damage;
+        Range = level.PlayerStats.Range;
+        BulletSpeed = level.PlayerStats.BulletSpeed;
+        IncomingDamageMultiplyer = level.PlayerStats.IncomingDamageMultiplyer;
+        ClearedWaves = level.PlayerStats.ClearedWaves;
+        Player.transform.position = new(level.PlayerPosX, level.PlayerPosY);
+        _levelUI.ActivateCooldown();
+        SkillCooldown = CooldownTime;
     }
 }

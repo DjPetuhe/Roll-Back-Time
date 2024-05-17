@@ -17,6 +17,9 @@ public class Waves : MonoBehaviour
     [Header("Doors")]
     [SerializeField] List<Door> Doors;
 
+    [Header("RoomDeactivator")]
+    [SerializeField] RoomDeactivator RoomDeactivator;
+
     private WaveDifficulty _difficulty;
     private float _spawnRate;
     private float _spawnAmount;
@@ -37,6 +40,7 @@ public class Waves : MonoBehaviour
             {
                 foreach (Door door in Doors)
                     door.TriggerOpen();
+                RoomDeactivator.Cleared();
             }
         }
     }

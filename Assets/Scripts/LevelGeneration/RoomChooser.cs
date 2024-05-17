@@ -79,15 +79,25 @@ public class RoomChooser : MonoBehaviour
 
     private static readonly System.Random Rand = new();
 
-    public Tilemap ChooseRoom(int i, int j, Rooms[,] level)
+    public Tilemap ChooseRoom(int i, int j, Rooms[,] level, out Directions direction, out int tilemapIndex)
     {
-        Directions direction = GetDirection(i, j, level);
+        direction = GetDirection(i, j, level);
         List<Tilemap> list = ChooseRoomList(level[i, j], direction);
 
         if (list.Count <= 0)
             throw new NotImplementedException("These types of rooms for some reason not yet implemented");
+        tilemapIndex = Rand.Next(list.Count);
+        return list[tilemapIndex];
+    }
 
-        return list[Rand.Next(list.Count)];
+    public Tilemap ChooseRoom(Rooms roomType, Directions direction, int tilemapIndex)
+    {
+        List<Tilemap> list = ChooseRoomList(roomType, direction);
+
+        if (list.Count <= tilemapIndex || tilemapIndex < 0)
+            throw new ArgumentOutOfRangeException("Ttilemap index is out of range in tilemap list");
+
+        return list[tilemapIndex];
     }
 
     private Directions GetDirection(int i, int j, Rooms[,] level)

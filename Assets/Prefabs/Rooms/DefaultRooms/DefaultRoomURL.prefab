@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 9071346581819171286}
   - component: {fileID: 1631764678182222563}
   - component: {fileID: 4444208240229714364}
+  - component: {fileID: 6541513204490314125}
   m_Layer: 0
   m_Name: DefaultRoomURL
   m_TagString: Untagged
@@ -7000,6 +7001,23 @@ MonoBehaviour:
   - tile: {fileID: 11400000, guid: a9c1247e11ec1024794a383f81170a48, type: 2}
     overrideArea: 1
     area: 1
+--- !u!114 &6541513204490314125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193062100294746323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41f973ed2da71d84c907ac7dbf86a7b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Doors:
+  - {fileID: 2551964385938374574}
+  - {fileID: 7101653275374275916}
+  - {fileID: 5043573713721616124}
+  chest: {fileID: 7359016865066394971}
 --- !u!1 &6816362500823742918
 GameObject:
   m_ObjectHideFlags: 0
@@ -8021,6 +8039,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8202813359708681054, guid: e7177b19599ab3d42b37d0486b6c321e, type: 3}
+      propertyPath: RoomDeactivator
+      value: 
+      objectReference: {fileID: 6541513204490314125}
+    - target: {fileID: 8202813359708681054, guid: e7177b19599ab3d42b37d0486b6c321e, type: 3}
       propertyPath: Doors.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -8057,6 +8079,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7177b19599ab3d42b37d0486b6c321e, type: 3}
+--- !u!114 &7359016865066394971 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6564695157578737147, guid: e7177b19599ab3d42b37d0486b6c321e, type: 3}
+  m_PrefabInstance: {fileID: 4411840639118934176}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f947ff44fa2ea64482a2f1bbaa6b4a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8053998410465368611 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5980654197677775491, guid: e7177b19599ab3d42b37d0486b6c321e, type: 3}

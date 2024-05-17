@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -7,17 +5,17 @@ public class Door : MonoBehaviour
     [SerializeField] GameObject ClosedDoor;
     [SerializeField] GameObject OpenedDoor;
 
-    private bool _triggered = false;
+    public bool Triggered { get; set; }
 
     public void TriggerClose()
     {
-        if (_triggered)
+        if (Triggered)
             return;
 
         ClosedDoor.SetActive(true);
         OpenedDoor.SetActive(false);
 
-        _triggered = true;
+        Triggered = true;
     }
 
     public void TriggerOpen()

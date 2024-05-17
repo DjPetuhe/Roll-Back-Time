@@ -580,7 +580,7 @@ GameObject:
   - component: {fileID: 293670519}
   m_Layer: 0
   m_Name: Level
-  m_TagString: Untagged
+  m_TagString: LevelCreator
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5585,6 +5585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e020cfa0106bccb49a3ad7a36f84ec26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 880185338}
   _currentTime: 0
   _state: 0
   _curHealth: 100

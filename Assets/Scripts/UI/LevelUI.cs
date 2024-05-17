@@ -102,6 +102,8 @@ public class LevelUI : MonoBehaviour
         CooldownImage.enabled = true;
     }
 
+    public void ActivateCooldown() => CooldownImage.enabled = true;
+
     public void DisableSkill()
     {
         SkillButton.interactable = false;
