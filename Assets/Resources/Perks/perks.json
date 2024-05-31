@@ -4,7 +4,7 @@
             "PerkQuality": 1,
             "Description": "Doubles current damage",
             "PerkChanges": {
-                "DamageMultiplyer": 2
+                "DamageMultiplier": 2
             }
         },
         {
@@ -12,7 +12,7 @@
             "Description": "All stats up!",
             "PerkChanges": {
                 "DamageChange": 5,
-                "IncomingDamageMultiplyer": 0.95,
+                "IncomingDamageMultiplier": 0.95,
                 "MaxHealthChange": 20,
                 "HealthChange": 20,
                 "RangeChange": 2,
@@ -25,8 +25,8 @@
             "PerkQuality": 1,
             "Description": "Increases bullet speed 1.5 times and reduces time between shots 1.5 times",
             "PerkChanges": {
-                "BulletSpeedMultiplyer": 1.5,
-                "TimeBetweenShotsMultiplyer": 0.75
+                "BulletSpeedMultiplier": 1.5,
+                "TimeBetweenShotsMultiplier": 0.75
             }
         },
         {
@@ -43,23 +43,23 @@
             "Description": "Triples the damage, but doubles incoming damage",
             "PerkChanges": {
                 "DamageMultiplier": 3,
-                "IncomingDamageMultiplyer": 2
+                "IncomingDamageMultiplier": 2
             }
         },
         {
             "PerkQuality": 2,
             "Description": "Doubles max health but loose 50% of current health points",
             "PerkChanges": {
-                "MaxHealthMultiplyer": 2,
-                "HealthMultiplyer": 0.5
+                "MaxHealthMultiplier": 2,
+                "HealthMultiplier": 0.5
             }
         },
         {
             "PerkQuality": 2,
             "Description": "Your shots deal more damage, but bullets move more slowly",
             "PerkChanges": {
-                "DamageMultiplyer": 2,
-                "BulletSpeedMultiplyer": 0.5 
+                "DamageMultiplier": 2,
+                "BulletSpeedMultiplier": 0.5 
             }
         },
         {
@@ -70,7 +70,7 @@
                 "BulletSpeedChange": 1,
                 "RangeChange": 3,
                 "TimeBetweenShotsChange": 0.1,
-                "MaxHealthMultiplyer": 0.75 
+                "MaxHealthMultiplier": 0.75 
             }
         },
         {
@@ -91,7 +91,7 @@
             "PerkQuality": 0,
             "Description": "Decreases incoming damage by 10%",
             "PerkChanges": {
-                "IncomingDamageMultiplyer": 0.9
+                "IncomingDamageMultiplier": 0.9
             }
         },
         {

@@ -366,20 +366,20 @@ public class GameManager : MonoBehaviour
     public void ApplyPerkChanges(PerkChanges perkChanges)
     {
         Health += (int)perkChanges.MaxHealthChange;
-        Health = (int)Mathf.Ceil(Health * perkChanges.MaxHealthMultiplyer);
+        Health = (int)Mathf.Ceil(Health * perkChanges.MaxHealthMultiplier);
         CurHealth += (int)perkChanges.HealthChange;
-        CurHealth = (int)Mathf.Ceil(CurHealth * perkChanges.HealthMultiplyer);
+        CurHealth = (int)Mathf.Ceil(CurHealth * perkChanges.HealthMultiplier);
         Damage += perkChanges.DamageChange;
-        Damage *= perkChanges.DamageMultiplyer;
+        Damage *= perkChanges.DamageMultiplier;
         Range += perkChanges.RangeChange;
-        Range *= perkChanges.RangeMultiplyer;
+        Range *= perkChanges.RangeMultiplier;
         TimeBetweenShots += perkChanges.TimeBetweenShotsChange;
-        TimeBetweenShots *= perkChanges.TimeBetweenShotsMultiplyer;
+        TimeBetweenShots *= perkChanges.TimeBetweenShotsMultiplier;
         Speed += perkChanges.SpeedChange;
-        Speed *= perkChanges.SpeedMultiplyer;
+        Speed *= perkChanges.SpeedMultiplier;
         BulletSpeed += perkChanges.BulletSpeedChange;
-        BulletSpeed *= perkChanges.BulletSpeedMultiplyer;
-        IncomingDamageMultiplyer *= perkChanges.IncomingDamageMultiplyer;
+        BulletSpeed *= perkChanges.BulletSpeedMultiplier;
+        IncomingDamageMultiplyer *= perkChanges.IncomingDamageMultiplier;
     }
 
     public void DeactivateSkill()
